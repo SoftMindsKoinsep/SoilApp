@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name" translatable="true">Soil</string>
+    <string name="log_in" translatable="true">LOG IN</string>
+    <string name="login_button" translatable="true">Login</string>
+    <string name="sign_up" translatable="true">SIGN UP</string>
+    <string name="sign_in" translatable="true">Sign in</string>
+    <string name="soil_Logo" translatable="true">Soil Logo</string>
+    <string name="remember_me" translatable="true">Remember Me</string>
+    <string name="login_email" translatable="true">Enter Email</string>
+    <string name="password" translatable="true">Enter Password</string>
+    <string name="forget_password" translatable="true">Forgot \n your password?</string>
+    <string name="first_name">First Name</string>
+    <string name="password_help">Your password must be 8-20 characters,\n and must include one letter and one number. </string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_account">Create an account</string>
+    <string name="phone">Phone</string>
+    <string name="email">E-mail</string>
+    <string name="last_name">Last Name</string>
+    <string name="settings_button">Settings</string>
+    <string name="back_button">Back Button</string>
+    <string name="account">Account</string>
+    <string name="privacy"><![CDATA[Privacy & Security]]></string>
+    <string name="support"><![CDATA[Help & Support]]></string>
+    <string name="logout">Logout</string>
+
+</resources>
