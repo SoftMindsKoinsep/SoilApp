@@ -4,21 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleObserver;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.FullscreenListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerUtils;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -28,7 +23,6 @@ import java.util.List;
 
 public class youtubePlayer extends AppCompatActivity {
 
-    private static final String PLAYLIST_ID = "PLgh0UxNx43uBCvdlEq1brjMVrNF6M9WRl";
     private List<String> lista;
     private YouTubePlayerView youTubePlayerView,youTubePlayerView2,youTubePlayerView3,youTubePlayerView4,youTubePlayerView5;
 
@@ -97,6 +91,7 @@ public class youtubePlayer extends AppCompatActivity {
                     .controls(1)
                     .listType("playlist")
                     .list((lista.get(i)))
+                    .fullscreen(1)
                     .build();
 
 

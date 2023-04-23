@@ -97,7 +97,7 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="19dp"
                     android:contentDescription="lock"
                     android:src="@drawable/baseline_lock_24" />
 
@@ -132,7 +132,7 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="19dp"
                     android:contentDescription="headphones"
                     android:src="@drawable/baseline_headphones_24" />
 
@@ -167,7 +167,7 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="18dp"
                     android:contentDescription="questionMark"
                     android:src="@drawable/baseline_question_mark_24" />
 
@@ -202,7 +202,7 @@
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="21dp"
                     android:contentDescription="@string/logout"
                     android:src="@drawable/baseline_logout_24" />
 
