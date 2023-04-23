@@ -22,7 +22,7 @@ public class sign_up_page extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivitySignUpPageBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_sign_up_page);
+        setContentView(binding.getRoot());
 
         backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {

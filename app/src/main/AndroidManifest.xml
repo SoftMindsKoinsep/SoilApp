@@ -5,6 +5,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +21,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soil.NoActionBar"
         tools:targetApi="31">
-
+        <activity
+            android:name=".artificial_shovel"
+            android:exported="false"
+            android:label="@string/title_activity_artificial_shovel"
+            android:theme="@style/Theme.Soil.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -37,6 +47,11 @@
         <activity
             android:name=".settings_page"
             android:exported="false" />
+
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
     </application>
 
 </manifest>
