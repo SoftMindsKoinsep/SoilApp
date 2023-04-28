@@ -18,6 +18,7 @@ public class sign_in_page extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    Boolean loginFlag;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +27,35 @@ public class sign_in_page extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivitySignInPageBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());                      //setContentView(R.layout.activity_sign_in_page);
+        setContentView(binding.getRoot());
 
         backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         pref = getSharedPreferences("Data",MODE_PRIVATE);
         editor = pref.edit();
-        boolean login = pref.getBoolean("ISLOGGEDIN",false);
-        if(login){
+        loginFlag = pref.getBoolean("ISLOGGEDIN",false);
+
+        databaseHelper = new DatabaseHelper(this);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMain();
+            }
+        });
+
+        if(loginFlag){
             Intent intent = new Intent(this, youtubePlayer.class);
             startActivity(intent);
         }
 
-        databaseHelper = new DatabaseHelper(this);
+
         binding.secondLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,10 +87,22 @@ public class sign_in_page extends AppCompatActivity {
                 }
             }
         });
-
     }
-    public void settings(View view) {
+
+    private void openMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSettings(View view) {
         Intent intent = new Intent(this,settings_page.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        databaseHelper.close();
+    }
+
 }

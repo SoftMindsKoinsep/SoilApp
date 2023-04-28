@@ -6,11 +6,13 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false" />
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -53,7 +55,7 @@
             tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".youtubePlayer"
-            android:exported="false"
+            android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="fullSensor" />
         <activity

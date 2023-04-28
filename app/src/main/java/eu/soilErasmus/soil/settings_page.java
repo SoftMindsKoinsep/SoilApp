@@ -30,6 +30,18 @@ public class settings_page extends AppCompatActivity {
         setContentView(R.layout.activity_settings_page);
 
         backButton = findViewById(R.id.backButton);
+        accountData = findViewById(R.id.accountButton);
+
+        pref = getSharedPreferences("Data",MODE_PRIVATE);
+        editor = pref.edit();
+        logOut = findViewById(R.id.logout_button);
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +49,6 @@ public class settings_page extends AppCompatActivity {
             }
         });
 
-        accountData = findViewById(R.id.accountButton);
         accountData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,9 +56,6 @@ public class settings_page extends AppCompatActivity {
             }
         });
 
-        pref = getSharedPreferences("Data",MODE_PRIVATE);
-        editor = pref.edit();
-        logOut = findViewById(R.id.logout_button);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,12 +64,13 @@ public class settings_page extends AppCompatActivity {
         });
     }
 
+
     private void logout() {
-        databaseHelper = new DatabaseHelper(this);
-        databaseHelper.deleteData();
-        Intent intent = new Intent(this, MainActivity.class);
+        pref = getSharedPreferences("Data",MODE_PRIVATE);
+        editor = pref.edit();
         editor.clear();
         editor.apply();
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
@@ -75,10 +84,10 @@ public class settings_page extends AppCompatActivity {
         }
             StringBuffer buffer = new StringBuffer();
             while (result.moveToNext()){
-                buffer.append("Name :" + result.getString(0) + "\n");
-                buffer.append("LastName :" + result.getString(1) + "\n");
-                buffer.append("Email :" + result.getString(2) + "\n");
-                buffer.append("Phone :" + result.getString(3) + "\n");
+                buffer.append("Name :  " + result.getString(0) + "\n");
+                buffer.append("LastName :  " + result.getString(1) + "\n");
+                buffer.append("Email :  " + result.getString(2) + "\n");
+                buffer.append("Phone :  " + result.getString(3) + "\n"+ "\n"+ "\n");
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
         builder.setCancelable(true);
@@ -86,5 +95,6 @@ public class settings_page extends AppCompatActivity {
         builder.setMessage(buffer.toString());
         builder.show();
     }
+
 
 }

@@ -12,8 +12,6 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button signup;
 
-    private Button skip;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,32 +20,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         login = findViewById(R.id.loginButton);
+        signup = findViewById(R.id.signupButton);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openLogin();
             }
-        });
 
-        signup = findViewById(R.id.signupButton);
+        });
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSignup();            }
-        });
-
-
-        skip = findViewById(R.id.skipButton);
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openYoutube();
+                openSignup();
             }
+
         });
+
     }
 
     public void openLogin(){
-        Intent intent = new Intent(this, sign_in_page.class);
+        Intent intent = new Intent(this, artificial_shovel.class);
         startActivity(intent);
     }
 
@@ -55,13 +53,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, sign_up_page.class);
         startActivity(intent);
     }
-    public void openYoutube(){
-        Intent intent = new Intent(this, youtubePlayer.class);
-        startActivity(intent);
-    }
 
-    public void settings(View view) {
+    public void openSettings(View view) {
         Intent intent = new Intent(this,settings_page.class);
         startActivity(intent);
     }
+
 }

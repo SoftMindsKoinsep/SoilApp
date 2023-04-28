@@ -25,15 +25,21 @@ public class sign_up_page extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         backButton = findViewById(R.id.backButton);
+        databaseHelper = new DatabaseHelper(this);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
-        databaseHelper = new DatabaseHelper(this);
-
         binding.createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +49,6 @@ public class sign_up_page extends AppCompatActivity {
                 String phone = binding.signupPhone.getText().toString();
                 String password = binding.signupPassword .getText().toString();
                 String confirmPassword = binding.signupConfirm.getText().toString();
-
 
                 if (name.equals("") || lastname.equals("") || email.equals("") || phone.equals("") || password.equals("") || confirmPassword.equals(""))
                     Toast.makeText(sign_up_page.this, "Παρακαλώ συμπληρώστε όλα τα πεδία", Toast.LENGTH_SHORT).show();
@@ -56,7 +61,7 @@ public class sign_up_page extends AppCompatActivity {
 
                             if (insert){
                                 Toast.makeText(sign_up_page.this, "Εγραφήκατε Επιτυχώς!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),sign_in_page.class);
+                                Intent intent = new Intent(view.getContext(),sign_in_page.class);
                                 startActivity(intent);
                             } else{
                                 Toast.makeText(sign_up_page.this, "Απέτυχε η εγγραφή!", Toast.LENGTH_SHORT).show();
@@ -72,5 +77,12 @@ public class sign_up_page extends AppCompatActivity {
             }
 
         });
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        databaseHelper.close();
     }
 }

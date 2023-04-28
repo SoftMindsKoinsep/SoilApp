@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:padding="10dp"
         android:text="@string/sign_in"
         android:textSize="20sp"
@@ -24,13 +24,14 @@
         android:id="@+id/imageView2"
         android:layout_width="230dp"
         android:layout_height="110dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/soil_Logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
+        app:layout_constraintVertical_bias="0.07999998"
         app:srcCompat="@drawable/soil_logo" />
 
     <EditText
@@ -95,23 +96,22 @@
         android:id="@+id/ForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:background="#00000000"
         android:text="@string/forget_password"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/secondLoginButton"
         app:layout_constraintStart_toStartOf="@+id/secondLoginButton"
-        app:layout_constraintTop_toBottomOf="@+id/secondLoginButton"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toBottomOf="@+id/secondLoginButton" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/baseline_arrow_back_24"
         android:contentDescription="@string/back_button"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,12 +121,12 @@
         android:id="@+id/settingsButton2"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:contentDescription="@string/settings_button"
-        android:onClick="settings"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:onClick="openSettings"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_settings_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
