@@ -1,5 +1,6 @@
-# SoilApp
-SoilApp 
+# SoilErasmus 
+SoilErasmus
+ 
 
 How do i Set up my project ?
 
