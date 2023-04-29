@@ -1,7 +1,10 @@
 package eu.soilErasmus.soil;
 
+import static android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         login = findViewById(R.id.loginButton);
         signup = findViewById(R.id.signupButton);
-
     }
 
     @Override
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openLogin(){
-        Intent intent = new Intent(this, artificial_shovel.class);
+        Intent intent = new Intent(this, sign_in_page.class);
         startActivity(intent);
     }
 
@@ -59,4 +61,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }

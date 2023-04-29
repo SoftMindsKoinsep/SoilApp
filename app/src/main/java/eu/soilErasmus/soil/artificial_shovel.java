@@ -142,5 +142,11 @@ public class artificial_shovel extends AppCompatActivity implements
         titleNode.setRenderable(viewRenderable);
         titleNode.setEnabled(true);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
 

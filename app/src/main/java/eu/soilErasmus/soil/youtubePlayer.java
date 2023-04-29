@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,19 +39,18 @@ public class youtubePlayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_youtube_player);
 
-
         recyclerView = findViewById(R.id.recycler_view);
+        settings = findViewById(R.id.settingsButton3);
+        camera = findViewById(R.id.artificial);
 
         lista = new ArrayList<String>();
-        lista.add("6JYIGclVQdw");
-        lista.add("LvetJ9U_tVY");
-        lista.add("6JYIGclVQdw");
-        lista.add("LvetJ9U_tVY");
-        lista.add("6JYIGclVQdw");
-
+        lista.add("PLgh0UxNx43uBqUHgjVipN0vXp9pHR9Pkq");
+        lista.add("PLgh0UxNx43uBCvdlEq1brjMVrNF6M9WRl");
+        lista.add("PLgh0UxNx43uDE9s1SoSZdctfApwbx7j0t");
+        lista.add("PLgh0UxNx43uAx43WBIU1V6fjZ28nynlUj");
+        lista.add("PLgh0UxNx43uDnAx7H6QaEfVnKi7aiYUNL");
 
     }
-
 
     @Override
     protected void onResume() {
@@ -64,14 +64,6 @@ public class youtubePlayer extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(lista, lifecycle);
         recyclerView.setAdapter(adapter);
 
-    }
-
-}
-
-/*
-
-
-       settings = findViewById(R.id.settingsButton3);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +72,6 @@ public class youtubePlayer extends AppCompatActivity {
         });
 
 
-        camera = findViewById(R.id.artificial);
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +79,8 @@ public class youtubePlayer extends AppCompatActivity {
             }
         });
 
+
+    }
     private void openCamera() {
         Intent intent = new Intent(this,artificial_shovel.class);
         startActivity(intent);
@@ -98,6 +91,92 @@ public class youtubePlayer extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+}
+
+/*
+
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.YouTubePlayerViewHolder> {
+
+    private final List<String> playlistIds;
+    private final Lifecycle lifecycle ;
+
+    @NonNull
+    public YouTubePlayerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.youtube_player_item,viewGroup,false);
+        return new YouTubePlayerViewHolder(lifecycle, itemView);
+    }
+
+
+    public void onBindViewHolder( YouTubePlayerViewHolder holder, int position) {
+        holder.cueVideo(playlistIds.get(position));
+        //
+    }
+
+    public int getItemCount() {
+        return playlistIds.size();
+    }
+
+    public RecyclerViewAdapter( List<String> playlistIds,  Lifecycle lifecycle) {
+        super();
+        this.playlistIds = playlistIds;
+        this.lifecycle = lifecycle;
+    }
+    public static final class YouTubePlayerViewHolder extends RecyclerView.ViewHolder {
+
+        private String currentId = null;
+        private YouTubePlayer youTubePlayer = null;
+
+        public void cueVideo(String playlistId){
+            currentId = playlistId;
+            youTubePlayer.cueVideo(playlistId,0);
+
+        }
+
+        public YouTubePlayerViewHolder( Lifecycle lifecycle, View itemView) {
+            super(itemView);
+
+            YouTubePlayerView youTubePlayerView = itemView.findViewById(R.id.youtube_player_view);
+            lifecycle.addObserver(youTubePlayerView);
+
+
+
+            View overlayView = itemView.findViewById(R.id.overlay_view);
+            overlayView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    YouTubePlayer player = YouTubePlayerViewHolder.this.youTubePlayer;
+                    player.play();
+
+                }
+            });
+            lifecycle.addObserver(youTubePlayerView);
+            youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                    YouTubePlayerViewHolder.this.youTubePlayer = youTubePlayer;
+                    String playerId= YouTubePlayerViewHolder.this.currentId;
+                    if(playerId != null){
+                        youTubePlayer.cueVideo(playerId,0);
+
+                    }
+                }
+            });
+
+        }
+
+
+
+
+    }
+}
+
+
+
+
 
 
         lista = new ArrayList<String>();
@@ -106,12 +185,6 @@ public class youtubePlayer extends AppCompatActivity {
         lista.add("PLgh0UxNx43uDnAx7H6QaEfVnKi7aiYUNL");
         lista.add("PLgh0UxNx43uAx43WBIU1V6fjZ28nynlUj");
         lista.add("PLgh0UxNx43uDE9s1SoSZdctfApwbx7j0t");
-
-        youTubePlayerView = findViewById(R.id.youtube_player_view);
-        youTubePlayerView2 = findViewById(R.id.youtube_player_view2);
-        youTubePlayerView3 = findViewById(R.id.youtube_player_view3);
-        youTubePlayerView4 = findViewById(R.id.youtube_player_view4);
-        youTubePlayerView5 = findViewById(R.id.youtube_player_view5);
 
 
         youTubePlayerView = findViewById(R.id.youtube_player_view);
