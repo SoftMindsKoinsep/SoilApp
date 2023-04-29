@@ -51,7 +51,7 @@ public class sign_up_page extends AppCompatActivity {
                 String confirmPassword = binding.signupConfirm.getText().toString();
 
                 if (name.equals("") || lastname.equals("") || email.equals("") || phone.equals("") || password.equals("") || confirmPassword.equals(""))
-                    Toast.makeText(sign_up_page.this, "Παρακαλώ συμπληρώστε όλα τα πεδία", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sign_up_page.this, "Please fill in your information", Toast.LENGTH_SHORT).show();
                 else{
                     if (password.equals(confirmPassword)){
                         Boolean checkUserEmail = databaseHelper.checkEmail(email);
@@ -60,17 +60,17 @@ public class sign_up_page extends AppCompatActivity {
                             Boolean insert = databaseHelper.insertData(name,lastname,email,phone,password);
 
                             if (insert){
-                                Toast.makeText(sign_up_page.this, "Εγραφήκατε Επιτυχώς!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(sign_up_page.this, "Signed up Succesfully!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(view.getContext(),sign_in_page.class);
                                 startActivity(intent);
                             } else{
-                                Toast.makeText(sign_up_page.this, "Απέτυχε η εγγραφή!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(sign_up_page.this, "Failure!", Toast.LENGTH_SHORT).show();
                             }
                         } else{
-                            Toast.makeText(sign_up_page.this, "Υπάρχει ήδη χρήστης με αυτό το email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(sign_up_page.this, "There is already a user with this email", Toast.LENGTH_SHORT).show();
                         }
                     } else{
-                        Toast.makeText(sign_up_page.this, "Λάθος κωδικός", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(sign_up_page.this, "Wrong Password", Toast.LENGTH_SHORT).show();
                     }
                 }
 

@@ -37,6 +37,8 @@ public class youtubePlayer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_youtube_player);
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -168,9 +170,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }
 
-
-
-
     }
 }
 
@@ -187,71 +186,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         lista.add("PLgh0UxNx43uDE9s1SoSZdctfApwbx7j0t");
 
 
-        youTubePlayerView = findViewById(R.id.youtube_player_view);
-        youTubePlayerView.setEnableAutomaticInitialization(false);
-        getLifecycle().addObserver(youTubePlayerView);
-        initYouTubePlayerView((2));
-
-        youTubePlayerView.setEnableAutomaticInitialization(false);
-        youTubePlayerView2.setEnableAutomaticInitialization(false);
-        youTubePlayerView3.setEnableAutomaticInitialization(false);
-        youTubePlayerView4.setEnableAutomaticInitialization(false);
-        youTubePlayerView5.setEnableAutomaticInitialization(false);
-        getLifecycle().addObserver(youTubePlayerView);
-        getLifecycle().addObserver(youTubePlayerView2);
-        getLifecycle().addObserver(youTubePlayerView3);
-        getLifecycle().addObserver(youTubePlayerView4);
-        getLifecycle().addObserver(youTubePlayerView5);
-
-
-        for (int i=0; i< lista.size(); i++){
-            initYouTubePlayerView(i);
-
-        }
-
-    }
-
-    private void initYouTubePlayerView(int i) {
-
-            IFramePlayerOptions iFramePlayerOptions = new IFramePlayerOptions.Builder()
-                    .controls(1)
-                    .listType("playlist")
-                    .list((lista.get(i)))
-                    .fullscreen(1)
-                    .build();
-
-
-            switch (i){
-                case 0 :
-                    getLifecycle().addObserver(youTubePlayerView);
-                    youTubePlayerView.initialize(new AbstractYouTubePlayerListener() {
-                    }, true, iFramePlayerOptions);
-                    break;
-                case 1 :
-                    getLifecycle().addObserver(youTubePlayerView2);
-                    youTubePlayerView2.initialize(new AbstractYouTubePlayerListener() {
-                    }, true, iFramePlayerOptions);
-                    break;
-                case 2 :
-                    getLifecycle().addObserver(youTubePlayerView3);
-                    youTubePlayerView3.initialize(new AbstractYouTubePlayerListener() {
-                    }, true, iFramePlayerOptions);
-                    break;
-                case 3 :
-                    getLifecycle().addObserver(youTubePlayerView4);
-                    youTubePlayerView4.initialize(new AbstractYouTubePlayerListener() {
-                    }, true, iFramePlayerOptions);
-                    break;
-                case 4 :
-                    getLifecycle().addObserver(youTubePlayerView5);
-                    youTubePlayerView5.initialize(new AbstractYouTubePlayerListener() {
-                    }, true, iFramePlayerOptions);
-                    break;
-            }
-
-
-
-    }
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -277,13 +211,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 }
 
 
-    public void onBackPressed(){
-        if (webView.canGoBack()) {
-            webView.goBack();
-        } else {
-            super.onBackPressed();
-        }
-    }
+
 
 
 
