@@ -1,22 +1,19 @@
 package eu.soilErasmus.soil;
-import android.util.Log;
+import android.nfc.Tag;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
+
 import androidx.recyclerview.widget.RecyclerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerTracker;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
-
-
 import java.util.List;
 
 
@@ -45,9 +42,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.playlistIds = playlistIds;
         this.lifecycle = lifecycle;
     }
-    public class YouTubePlayerViewHolder extends RecyclerView.ViewHolder {
-        private boolean flag=false;
-        private boolean isFullscreen = false;
+    public class YouTubePlayerViewHolder extends RecyclerView.ViewHolder{
+        private boolean flag;
 
         public YouTubePlayerViewHolder( Lifecycle lifecycle, View itemView) {
             super(itemView);
@@ -55,18 +51,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             YouTubePlayerView youTubePlayerView = itemView.findViewById(R.id.youtube_player_view);
             lifecycle.addObserver(youTubePlayerView);
 
-            View overlayView = itemView.findViewById(R.id.overlay_view);
-            overlayView.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-
-                }
-            });
-            lifecycle.addObserver(youTubePlayerView);
-
         }
 
         public void cuePlaylist(String s) {
             if (!flag) {
+
+
                 YouTubePlayerView youTubePlayerView = itemView.findViewById(R.id.youtube_player_view);
                 lifecycle.addObserver(youTubePlayerView);
 
@@ -80,9 +70,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 lifecycle.addObserver(youTubePlayerView);
                 youTubePlayerView.initialize(new AbstractYouTubePlayerListener() {
                 }, true, iFramePlayerOptions);
-                flag = true;
+            flag=true;
             }
+        }
 
         }
     }
-}
