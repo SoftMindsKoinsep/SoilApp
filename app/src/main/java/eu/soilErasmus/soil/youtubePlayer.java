@@ -6,10 +6,12 @@ import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,29 +43,33 @@ public class youtubePlayer extends AppCompatActivity {
         lista = new ArrayList<String>();
         lista.add("PLgh0UxNx43uBqUHgjVipN0vXp9pHR9Pkq");
         lista.add("PLgh0UxNx43uBCvdlEq1brjMVrNF6M9WRl");
-        lista.add("PLgh0UxNx43uDE9s1SoSZdctfApwbx7j0t");
-        lista.add("PLgh0UxNx43uAx43WBIU1V6fjZ28nynlUj");
         lista.add("PLgh0UxNx43uDnAx7H6QaEfVnKi7aiYUNL");
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (mBundleRecyclerViewState != null) {
-            Parcelable listState = mBundleRecyclerViewState.getParcelable("recycler_state");
-            Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(listState);
-        }
+        lista.add("PLgh0UxNx43uAx43WBIU1V6fjZ28nynlUj");
+        lista.add("PLgh0UxNx43uDE9s1SoSZdctfApwbx7j0t");
 
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        Lifecycle lifecycle = getLifecycle();
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(lista, lifecycle);
+        Lifecycle lifecycle = this.getLifecycle();
+        RecyclerView.Adapter<RecyclerViewAdapter.YouTubePlayerViewHolder> adapter = new RecyclerViewAdapter(lista, lifecycle);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                if (e.getAction() == MotionEvent.ACTION_DOWN)
+                    rv.requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
 
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +84,17 @@ public class youtubePlayer extends AppCompatActivity {
                 openCamera();
             }
         });
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mBundleRecyclerViewState != null) {
+            Parcelable listState = mBundleRecyclerViewState.getParcelable("recycler_state");
+            Objects.requireNonNull(recyclerView.getLayoutManager()).onRestoreInstanceState(listState);
+        }
 
     }
 

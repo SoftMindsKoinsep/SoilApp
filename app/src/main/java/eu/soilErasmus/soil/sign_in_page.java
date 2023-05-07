@@ -63,7 +63,7 @@ public class sign_in_page extends AppCompatActivity {
                 String password = binding.password.getText().toString();
 
                 if(email.equals("") || password.equals(""))
-                    Toast.makeText(sign_in_page.this, "Παρακαλώ συμπληρώστε όλα τα πεδία", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sign_in_page.this, "Please fill in your credentials", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email,password);
 
@@ -73,16 +73,14 @@ public class sign_in_page extends AppCompatActivity {
                             editor.putString("password",password);
                             editor.putBoolean("ISLOGGEDIN", true);
                             editor.apply();
-                            Toast.makeText(sign_in_page.this, "Συνδεθήκατε Επιτυχώς", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
                             startActivity(intent);
                         } else{
-                            Toast.makeText(sign_in_page.this, "Συνδεθήκατε Επιτυχώς", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
                             startActivity(intent);
                         }
                     } else {
-                        Toast.makeText(sign_in_page.this, "Λάθος Email ή Κωδικός", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(sign_in_page.this, "Wrong credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

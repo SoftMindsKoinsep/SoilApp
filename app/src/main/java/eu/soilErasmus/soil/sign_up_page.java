@@ -27,7 +27,6 @@ public class sign_up_page extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         databaseHelper = new DatabaseHelper(this);
 
-
     }
 
     @Override

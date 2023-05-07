@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentOnAttachListener;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.widget.Toast;
 
 import com.google.ar.core.Anchor;
 import com.google.ar.core.Config;
@@ -28,9 +26,6 @@ import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.BaseArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
-import com.gorisse.thomas.sceneform.light.LightEstimationConfig;
-import com.gorisse.thomas.sceneform.light.EnvironmentLightsEstimate;
-import com.gorisse.thomas.sceneform.light.LightEstimationKt;
 
 import java.lang.ref.WeakReference;
 
@@ -57,11 +52,8 @@ public class artificial_shovel extends AppCompatActivity implements
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.arFragment, ArFragment.class, null)
                         .commit();
-
             }
         }
-
-
     }
 
     @Override
@@ -84,8 +76,6 @@ public class artificial_shovel extends AppCompatActivity implements
     @Override
     public void onViewCreated(ArSceneView arSceneView) {
         arFragment.setOnViewCreatedListener(null);
-
-        // Fine adjust the maximum frame rate
         arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL);
     }
 
@@ -131,8 +121,7 @@ public class artificial_shovel extends AppCompatActivity implements
         // Create the transformable model and add it to the anchor.
         TransformableNode model = new TransformableNode(arFragment.getTransformationSystem());
         model.setParent(anchorNode);
-        model.setRenderable(this.model)
-                .animate(true).start();
+        model.setRenderable(this.model).animate(true).start();
         model.select();
 
         Node titleNode = new Node();
