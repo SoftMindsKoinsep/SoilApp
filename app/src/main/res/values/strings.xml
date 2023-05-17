@@ -24,5 +24,8 @@
     <string name="logout">Logout</string>
     <string name="title_activity_artificial_shovel">artificial_shovel</string>
     <string name="title_activity_test">test</string>
+    <string name="deleteAccount">Delete Account</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

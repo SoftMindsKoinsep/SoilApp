@@ -55,7 +55,7 @@
                 android:id="@+id/accountButton"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:id="@+id/personIcon"
@@ -91,7 +91,7 @@
                 android:id="@+id/privacy"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:id="@+id/lock"
@@ -126,14 +126,14 @@
                 android:id="@+id/support"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:id="@+id/headphones"
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="19dp"
+                    android:layout_marginStart="18dp"
                     android:contentDescription="headphones"
                     android:src="@drawable/baseline_headphones_24" />
 
@@ -161,14 +161,14 @@
                 android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:id="@+id/questionMark"
                     android:layout_width="40dp"
                     android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="18dp"
+                    android:layout_marginStart="17dp"
                     android:contentDescription="questionMark"
                     android:src="@drawable/baseline_question_mark_24" />
 
@@ -193,10 +193,46 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/delete_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:id="@+id/deleteAccount"
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="17dp"
+                    android:contentDescription="@string/deleteAccount"
+                    android:src="@drawable/baseline_delete_24" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@id/deleteAccount"
+                    android:text="@string/deleteAccount"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/logout_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:id="@+id/logout"
