@@ -64,6 +64,10 @@ public class sign_in_page extends AppCompatActivity {
 
                 if(email.equals("") || password.equals(""))
                     Toast.makeText(sign_in_page.this, "Please fill in your credentials", Toast.LENGTH_SHORT).show();
+                else if(email.equals("guest") && password.equals("guest")){
+                    Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
+                    startActivity(intent);
+                }
                 else{
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email,password);
 
