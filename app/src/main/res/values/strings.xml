@@ -27,5 +27,6 @@
     <string name="deleteAccount">Delete Account</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
+    <string name="don_t_show_this_message_again">Don\'t show this message again</string>
 
 </resources>

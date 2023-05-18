@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+//Mia arxiki selida me 3 koumpia
+
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button signup;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //otan patas "piso", den termatizei h efarmogh alla metaferese sto home page
     @Override
     public void onBackPressed() {
         super.onBackPressed();
