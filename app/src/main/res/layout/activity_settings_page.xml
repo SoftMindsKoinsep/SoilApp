@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="250dp"
-            android:layout_height="170dp"
+            android:layout_width="230dp"
+            android:layout_height="140dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             app:srcCompat="@drawable/soil_logo" />
@@ -40,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="@string/settings_button"
-            android:textSize="23sp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <LinearLayout

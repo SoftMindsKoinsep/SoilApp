@@ -1,5 +1,5 @@
 package eu.soilErasmus.soil;
-import android.annotation.SuppressLint;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,7 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.YouTubePlayerViewHolder> {
 
     private final List<String> playlistIds;
-    public Lifecycle lifecycle ;
+    private final Lifecycle lifecycle ;
 
     RecyclerViewAdapter( List<String> playlistIds,  Lifecycle lifecycle) {
         this.playlistIds = playlistIds;
@@ -32,7 +32,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     public void onBindViewHolder(@NonNull YouTubePlayerViewHolder holder, int position) {
-        holder.cuePlaylist(this.playlistIds.get(position));
+
+        lifecycle.addObserver(holder.youTubePlayerView);
+        IFramePlayerOptions iFramePlayerOptions = new IFramePlayerOptions.Builder()
+                .controls(1)
+                //.rel(0)
+                .listType("playlist")
+                .list(playlistIds.get(position))
+                .ccLoadPolicy(0)
+                .ivLoadPolicy(0)
+                .build();
+
+        holder.youTubePlayerView.setEnableAutomaticInitialization(false);
+        holder.youTubePlayerView.initialize(new AbstractYouTubePlayerListener() {
+        }, true, iFramePlayerOptions);
     }
 
     public int getItemCount() {
@@ -41,33 +54,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     public class YouTubePlayerViewHolder extends RecyclerView.ViewHolder{
-        private boolean flag;
+        private YouTubePlayerView youTubePlayerView;
 
-        @SuppressLint("ClickableViewAccessibility")
         public YouTubePlayerViewHolder(View itemView) {
             super(itemView);
+            youTubePlayerView = itemView.findViewById(R.id.youtube_player_view);
 
-        }
-        public void cuePlaylist(String s) {
-            if (!flag) {
-                YouTubePlayerView youTubePlayerView = itemView.findViewById(R.id.youtube_player_view);
-                lifecycle.addObserver(youTubePlayerView);
-
-                IFramePlayerOptions iFramePlayerOptions = new IFramePlayerOptions.Builder()
-                        .controls(1)
-                        .listType("playlist")
-                        .list(s)
-                        .ccLoadPolicy(0)
-                        .ivLoadPolicy(0)
-                        .build();
-
-                youTubePlayerView.setEnableAutomaticInitialization(false);
-                lifecycle.addObserver(youTubePlayerView);
-                youTubePlayerView.initialize(new AbstractYouTubePlayerListener() {
-                }, true, iFramePlayerOptions);
-                flag=true;
-
-            }
         }
     }
 }

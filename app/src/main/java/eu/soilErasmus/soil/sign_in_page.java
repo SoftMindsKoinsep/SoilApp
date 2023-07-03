@@ -1,20 +1,22 @@
 package eu.soilErasmus.soil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 import eu.soilErasmus.soil.databinding.ActivitySignInPageBinding;
 
 public class sign_in_page extends AppCompatActivity {
     ActivitySignInPageBinding binding;
-    Button backButton;
+    Button backButton,settingsButton;
     DatabaseHelper databaseHelper;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -23,13 +25,12 @@ public class sign_in_page extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivitySignInPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         backButton = findViewById(R.id.backButton);
+        settingsButton = findViewById(R.id.settingsButtonSignIn);
 
         pref = getSharedPreferences("Data",MODE_PRIVATE);
         editor = pref.edit();
@@ -43,15 +44,40 @@ public class sign_in_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (v, insets) -> {
+            boolean imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime());
+
+            if(imeVisible){
+                WindowCompat.setDecorFitsSystemWindows(getWindow(),true);
+                WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),getWindow().getDecorView().findViewById(android.R.id.content));
+                controller.show(WindowInsetsCompat.Type.navigationBars());
+            }
+
+            else{
+                WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+                WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),getWindow().getDecorView().findViewById(android.R.id.content));
+                controller.hide(WindowInsetsCompat.Type.systemBars());
+                controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            }
+            return insets;
+        });
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMain();
+                finish();
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSettings();
             }
         });
 
         if(loginFlag){
-            Intent intent = new Intent(this, youtubePlayer.class);
+            Intent intent = new Intent(this, navigation_page.class);
             startActivity(intent);
         }
 
@@ -65,7 +91,7 @@ public class sign_in_page extends AppCompatActivity {
                 if(email.equals("") || password.equals(""))
                     Toast.makeText(sign_in_page.this, "Please fill in your credentials", Toast.LENGTH_SHORT).show();
                 else if(email.equals("guest") && password.equals("guest")){
-                    Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
+                    Intent intent = new Intent(getApplicationContext(), navigation_page.class);
                     startActivity(intent);
                 }
                 else{
@@ -77,10 +103,10 @@ public class sign_in_page extends AppCompatActivity {
                             editor.putString("password",password);
                             editor.putBoolean("ISLOGGEDIN", true);
                             editor.apply();
-                            Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
+                            Intent intent = new Intent(getApplicationContext(), navigation_page.class);
                             startActivity(intent);
                         } else{
-                            Intent intent = new Intent(getApplicationContext(),youtubePlayer.class);
+                            Intent intent = new Intent(getApplicationContext(), navigation_page.class);
                             startActivity(intent);
                         }
                     } else {
@@ -91,12 +117,8 @@ public class sign_in_page extends AppCompatActivity {
         });
     }
 
-    private void openMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
-    public void openSettings(View view) {
+    private void openSettings() {
         Intent intent = new Intent(this,settings_page.class);
         startActivity(intent);
     }
@@ -107,4 +129,9 @@ public class sign_in_page extends AppCompatActivity {
         databaseHelper.close();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

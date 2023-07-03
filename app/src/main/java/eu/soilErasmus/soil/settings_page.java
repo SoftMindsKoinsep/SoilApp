@@ -2,6 +2,9 @@ package eu.soilErasmus.soil;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,8 +29,6 @@ public class settings_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_settings_page);
 
         backButton = findViewById(R.id.backButton);
@@ -44,6 +45,8 @@ public class settings_page extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        hideSystemUI();
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,12 +77,15 @@ public class settings_page extends AppCompatActivity {
     }
 
     private void accountData() {
+
         databaseHelper = new DatabaseHelper(this);
         Cursor result = databaseHelper.getData();
+
         if (result.getCount()== 0) {
             Toast.makeText(this, "Please create an account firstly", Toast.LENGTH_SHORT).show();
             return;
         }
+
         StringBuffer buffer = new StringBuffer();
         while (result.moveToNext()){
             buffer.append("Name :  " + result.getString(0) + "\n");
@@ -87,6 +93,7 @@ public class settings_page extends AppCompatActivity {
             buffer.append("Email :  " + result.getString(2) + "\n");
             buffer.append("Phone :  " + result.getString(3) + "\n"+ "\n"+ "\n");
         }
+
         AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
         builder.setCancelable(true);
         builder.setTitle("User Data");
@@ -102,18 +109,19 @@ public class settings_page extends AppCompatActivity {
             return;
         }
 
-        pref = getSharedPreferences("Data",MODE_PRIVATE);
         AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
         builder.setTitle("Are you sure?");
         builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                databaseHelper.deleteData();
-                Toast.makeText(getApplicationContext(), "Account Deleted", Toast.LENGTH_SHORT).show();
+            public void onClick(DialogInterface dialog, int i) {
 
+                databaseHelper.deleteData();
+                pref = getSharedPreferences("Data",MODE_PRIVATE);
                 editor = pref.edit();
                 editor.clear();
                 editor.apply();
+
+                Toast.makeText(getApplicationContext(), "Account Deleted", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -129,16 +137,47 @@ public class settings_page extends AppCompatActivity {
         dialog.show();
 
     }
+
     private void logout() {
+
+        databaseHelper = new DatabaseHelper(this);
+        Cursor result = databaseHelper.getData();
+        if (result.getCount()== 0) {
+            Toast.makeText(this, "You have not signed up yet!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         pref = getSharedPreferences("Data",MODE_PRIVATE);
-        editor = pref.edit();
-        editor.clear();
-        editor.apply();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
+        builder.setTitle("Want to log out?");
+        builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+
+                pref = getSharedPreferences("Data",MODE_PRIVATE);
+                editor = pref.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
-
-
-
+    public void hideSystemUI(){
+        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+        WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),this.getWindow().getDecorView().findViewById(android.R.id.content));
+        controller.hide(WindowInsetsCompat.Type.systemBars());
+        controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+    }
 }

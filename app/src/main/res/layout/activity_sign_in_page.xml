@@ -22,16 +22,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="230dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="190dp"
+        android:layout_height="140dp"
         android:contentDescription="@string/soil_Logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_bias="0.060000002"
         app:srcCompat="@drawable/soil_logo" />
 
     <EditText
@@ -117,16 +115,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/settingsButton2"
+    <Button
+        android:id="@+id/settingsButtonSignIn"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/settings_button"
-        android:onClick="openSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_settings_24" />
+        android:background="@drawable/baseline_settings_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

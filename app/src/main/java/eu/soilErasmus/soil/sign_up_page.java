@@ -1,11 +1,14 @@
 package eu.soilErasmus.soil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 import eu.soilErasmus.soil.databinding.ActivitySignUpPageBinding;
@@ -18,8 +21,6 @@ public class sign_up_page extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivitySignUpPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -32,6 +33,25 @@ public class sign_up_page extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (v, insets) -> {
+            boolean imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime());
+
+            if(imeVisible){
+                WindowCompat.setDecorFitsSystemWindows(getWindow(),true);
+                WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),getWindow().getDecorView().findViewById(android.R.id.content));
+                controller.show(WindowInsetsCompat.Type.navigationBars());
+            }
+
+            else{
+                WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+                WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),getWindow().getDecorView().findViewById(android.R.id.content));
+                controller.hide(WindowInsetsCompat.Type.systemBars());
+                controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            }
+            return insets;
+        });
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +98,15 @@ public class sign_up_page extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onStop() {
         super.onStop();
         databaseHelper.close();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -8,19 +8,19 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="270dp"
-        android:layout_height="180dp"
+        android:layout_width="240dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/soil_Logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.120000005"
+        app:layout_constraintVertical_bias="0.07999998"
         app:srcCompat="@drawable/soil_logo" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="180dp"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg"
         android:text="@string/log_in"
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="180dp"
+        android:layout_width="168dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_bg"
@@ -52,10 +52,10 @@
 
     <ImageView
         android:id="@+id/settingsButton"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:contentDescription="@string/settings_button"
         android:onClick="openSettings"
         app:layout_constraintEnd_toEndOf="parent"
