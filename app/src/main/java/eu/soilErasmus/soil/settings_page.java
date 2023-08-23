@@ -2,182 +2,84 @@ package eu.soilErasmus.soil;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class settings_page extends AppCompatActivity {
 
-    DatabaseHelper databaseHelper;
-    RelativeLayout accountData,logOut,deleteAccount;
+    private RecyclerView itemRecyclerView;
+    private List<SettingsItem> itemList;
     Button backButton;
-    SharedPreferences pref;
-    SharedPreferences.Editor editor;
 
+    int[] itemImages = {R.drawable.baseline_person_24,R.drawable.baseline_lock_24
+            ,R.drawable.baseline_delete_24,R.drawable.baseline_logout_24};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
+            backButton = view.findViewById(R.id.backButton);
+            ImageView soilLogo = view.findViewById(R.id.soilLogo);
+
+            ViewGroup.MarginLayoutParams backLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
+            ViewGroup.MarginLayoutParams imageLayoutParams = (ViewGroup.MarginLayoutParams) soilLogo.getLayoutParams();
+            backLayoutParams.topMargin = insets.top;
+            imageLayoutParams.topMargin = insets.top;
+
+            backButton.setLayoutParams(backLayoutParams);
+            soilLogo.setLayoutParams(imageLayoutParams);
+
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         backButton = findViewById(R.id.backButton);
-        accountData = findViewById(R.id.accountButton);
-        deleteAccount = findViewById(R.id.delete_button);
+        itemRecyclerView = findViewById(R.id.settings_recycler_view);
 
-        pref = getSharedPreferences("Data",MODE_PRIVATE);
-        editor = pref.edit();
-        logOut = findViewById(R.id.logout_button);
+        itemList = new ArrayList<>();
+        itemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        itemRecyclerView.setHasFixedSize(true);
 
+        getData();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        hideSystemUI();
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-        accountData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                accountData();
-            }
-        });
-
-        deleteAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                deleteAccount();
-            }
-        });
-
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout();
-            }
-        });
-    }
-
-    private void accountData() {
-
-        databaseHelper = new DatabaseHelper(this);
-        Cursor result = databaseHelper.getData();
-
-        if (result.getCount()== 0) {
-            Toast.makeText(this, "Please create an account firstly", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        StringBuffer buffer = new StringBuffer();
-        while (result.moveToNext()){
-            buffer.append("Name :  " + result.getString(0) + "\n");
-            buffer.append("LastName :  " + result.getString(1) + "\n");
-            buffer.append("Email :  " + result.getString(2) + "\n");
-            buffer.append("Phone :  " + result.getString(3) + "\n"+ "\n"+ "\n");
-        }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
-        builder.setCancelable(true);
-        builder.setTitle("User Data");
-        builder.setMessage(buffer.toString());
-        builder.show();
-    }
-
-    private void deleteAccount(){
-        databaseHelper = new DatabaseHelper(this);
-        Cursor result = databaseHelper.getData();
-        if (result.getCount()== 0) {
-            Toast.makeText(this, "There isn't any account to delete", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
-        builder.setTitle("Are you sure?");
-        builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-                databaseHelper.deleteData();
-                pref = getSharedPreferences("Data",MODE_PRIVATE);
-                editor = pref.edit();
-                editor.clear();
-                editor.apply();
-
-                Toast.makeText(getApplicationContext(), "Account Deleted", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        backButton.setOnClickListener(view -> finish());
 
     }
+    private void getData() {
+        String[] itemNames = getResources().getStringArray(R.array.settings_items);
 
-    private void logout() {
+        for( int i=0; i<itemImages.length; i++){
+            SettingsItem item = new SettingsItem(itemImages[i],itemNames[i]);
+            itemList.add(item);
 
-        databaseHelper = new DatabaseHelper(this);
-        Cursor result = databaseHelper.getData();
-        if (result.getCount()== 0) {
-            Toast.makeText(this, "You have not signed up yet!", Toast.LENGTH_SHORT).show();
-            return;
         }
 
-        pref = getSharedPreferences("Data",MODE_PRIVATE);
-        AlertDialog.Builder builder = new AlertDialog.Builder(settings_page.this);
-        builder.setTitle("Want to log out?");
-        builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-                pref = getSharedPreferences("Data",MODE_PRIVATE);
-                editor = pref.edit();
-                editor.clear();
-                editor.apply();
-
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    public void hideSystemUI(){
-        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
-        WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),this.getWindow().getDecorView().findViewById(android.R.id.content));
-        controller.hide(WindowInsetsCompat.Type.systemBars());
-        controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+        SettingsRecyclerViewAdapter adapter = new SettingsRecyclerViewAdapter(this,itemList);
+        itemRecyclerView.setAdapter(adapter);
+        itemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

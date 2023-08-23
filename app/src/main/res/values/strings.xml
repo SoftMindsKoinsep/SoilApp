@@ -1,111 +1,249 @@
 <resources>
     <string name="app_name" translatable="true">Soil</string>
     <string name="log_in" translatable="true">LOG IN</string>
-    <string name="login_button" translatable="true">Login</string>
     <string name="sign_up" translatable="true">SIGN UP</string>
-    <string name="sign_in" translatable="true">Sign in</string>
-    <string name="soil_Logo" translatable="true">Soil Logo</string>
-    <string name="remember_me" translatable="true">Remember Me</string>
-    <string name="login_email" translatable="true">Enter Email</string>
-    <string name="password" translatable="true">Enter Password</string>
-    <string name="forget_password" translatable="true">Forgot \n your password?</string>
+
     <string name="first_name">First Name</string>
-    <string name="password_help">Your password must be 8-20 characters,\n and must include one letter and one number. </string>
+    <string name="last_name">Last Name</string>
+    <string name="email">E-mail</string>
+    <string name="phone">Phone</string>
+    <string name="password_help">Your password must be of 8\-20 characters,\n and must include one letter and one number. </string>
     <string name="confirm_password">Confirm password</string>
     <string name="create_account">Create an account</string>
-    <string name="phone">Phone</string>
-    <string name="email">E-mail</string>
-    <string name="last_name">Last Name</string>
+    <string name="go_back">Go Back</string>
+
+    <string name="sign_in" translatable="true">Sign in</string>
+    <string name="soil_Logo" translatable="true">Soil Logo</string>
+    <string name="login_email" translatable="true">Enter Email</string>
+    <string name="password" translatable="true">Enter Password</string>
+    <string name="remember_me" translatable="true">Remember Me</string>
+    <string name="forgot_password" translatable="true">Forgot your password?</string>
+
     <string name="settings_button">Settings</string>
     <string name="back_button">Back Button</string>
+    <string name="back">back</string>
     <string name="account">Account</string>
-    <string name="privacy"><![CDATA[Privacy & Security]]></string>
-    <string name="support"><![CDATA[Help & Support]]></string>
+    <string name="privacy">Privacy &amp; Security</string>
+    <string name="support">Help &amp; Support</string>
     <string name="logout">Logout</string>
-    <string name="title_activity_artificial_shovel">artificial_shovel</string>
-    <string name="title_activity_test">test</string>
-    <string name="deleteAccount">Delete Account</string>
+    <string name="delete_account">Delete Account</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
+
     <string name="don_t_show_this_message_again">Don\'t show this message again</string>
     <string name="Lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Duis gravida nulla vitae malesuada cursus. Fusce feugiat risus nulla, et luctus sapien sagittis at.Donec eget viverra massa, sit amet efficitur neque. Donec massa ipsum, vulputate ac sollicitudin ut, rutrum ut turpis.Fusce hendrerit, erat id hendrerit pulvinar, tortor quam mollis diam, nec commodo diam orci in odio.
         </string>
-    <string name="plant_page_button">plant page button</string>
+    <string name="plant_page_button">Plant page</string>
     <string name="about">About</string>
     <string name="videos">Videos</string>
     <string name="plants">Plants</string>
-    <string name="settings">Settings</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="nav_text">The rapid shift to remote teaching and learning necessitated by the global COVID19 pandemic exposed areas of significant need in VET schools, especially in those who are targeting students with disabilities and fewer opportunities. It has underscored previously unknown or poorly understood gaps in equity, access, tools, and infrastructure but as well in the VET educators of this underrepresented group.</string>
+    <string name="delete_models">Delete Models</string>
+    <string name="item_name">Item Name</string>
+    <string name="forward_arrow">Forward Arrow</string>
+    <string name="settings_item_image">Settings Item Image</string>
+    <string name="hide_show_toggle">hide/show toggle</string>
+    <string name="welcome_text">Welcome %1$s !</string>
+    <string name="forward_five">forward_five</string>
+    <string name="pause">pause</string>
+    <string name="play">play</string>
+    <string name="slash_character">/</string>
+    <string name="skip_next">skip next</string>
+    <string name="fullscreen_toggle">fullscreen toggle</string>
+    <string name="go_previous">go previous</string>
+    <string name="time_bar">time bar</string>
+    <string name="eu_image">euImage</string>
+    <string name="erasmus_image">erasmusImage</string>
+    <string name="open_menu">open menu</string>
+    <string name="open_camera">open camera</string>
+    <string name="plant_description">Plant Description</string>
+    <string name="open_close_toggle">open/close toggle</string>
+    <string name="plant_name">Plant Name</string>
+    <string name="open_video_list">open video list</string>
+    <string name="open_plant_page">open plant page</string>
+    <string name="open_settings_page">open settings page</string>
+    <string name="open_about_page">open About page</string>
+
+
+    <string-array name="settings_items">
+
+        <item>Account</item>
+        <item>Privacy and Security</item>
+        <item>Delete Account</item>
+        <item>Log Out</item>
+
+    </string-array>
+
 
     <string-array name="plant_name_array">
 
         <item>Tomato</item>
-        <item>Cucumber</item>
         <item>Pepper plant</item>
-        <item>Watermelon</item>
-        <item>Orange tree</item>
+        <item>Zucchini</item>
+        <item>Pumpkin</item>
 
-        <item>Apple tree</item>
-        <item>Cabbage</item>
-        <item>"Carrot"</item>
-        <item>"Rose bush"</item>
-        <item>"Strawberry"</item>
-
-        <item>"Cherry tree"</item>
-        <item>"Peach tree"</item>
+        <item>Carrot</item>
+        <item>"Cauliflower"</item>
         <item>"Fir tree"</item>
         <item>"Pine tree"</item>
-        <item>"Under Construction"</item>
 
-        <item>"Καρυδιά"</item>
-        <item>"Αμπέλι"</item>
-        <item>"Olive tree"</item>
+        <item>"Nettle"</item>
         <item>"Onion"</item>
-        <item>"Βασιλικός"</item>
-
-        <item>"Άνηθος"</item>
-        <item>"Τσουκνίδα"</item>
         <item>"Radishes"</item>
         <item>"Broccoli"</item>
-        <item>"Lettuce"</item>
 
     </string-array>
 
     <string-array name="plant_description_array">
 
-        <item>Tomato</item>
-        <item>Cucumber</item>
-        <item>Pepper plant</item>
-        <item>Watermelon</item>
-        <item>Orange tree</item>
+        <item>Tomato Description</item>
+        <item>Pepper plant Description</item>
+        <item>Zucchini Description</item>
+        <item>Pumpkin Description</item>
 
-        <item>Apple tree</item>
-        <item>Cabbage</item>
-        <item>"Carrot"</item>
-        <item>"Rose bush"</item>
-        <item>"Strawberry"</item>
+        <item>Carrot Description</item>
+        <item>"Cauliflower Description"</item>
+        <item>"Fir tree Description"</item>
+        <item>"Pine tree Description"</item>
 
-        <item>"Cherry tree"</item>
-        <item>"Peach tree"</item>
-        <item>"Fir tree"</item>
-        <item>"Pine tree"</item>
-        <item>"Under Construction"</item>
-
-        <item>"Καρυδιά"</item>
-        <item>"Αμπέλι"</item>
-        <item>"Olive tree"</item>
-        <item>"Onion"</item>
-        <item>"Βασιλικός"</item>
-
-        <item>"Άνηθος"</item>
-        <item>"Τσουκνίδα"</item>
-        <item>"Radishes"</item>
-        <item>"Broccoli"</item>
-        <item>"Lettuce"</item>
+        <item>"Nettle Description"</item>
+        <item>"Onion Description"</item>
+        <item>"Radishes Description"</item>
+        <item>"Broccoli Description"</item>
 
     </string-array>
+
+    <string-array name="menu_items">
+
+        <item>Videos</item>
+        <item>Plants</item>
+        <item>Settings</item>
+        <item>About</item>
+
+    </string-array>
+
+    <string-array name="video_categories">
+
+        <item>Irrigation</item>
+        <item>Planting</item>
+        <item>Pruning</item>
+        <item>Weeding and Mulching</item>
+        <item>Flower Crops</item>
+
+        <item>Craft Activities</item>
+        <item>Harvesting</item>
+        <item>Cooking from the Garden</item>
+        <item>Special Needs Gardening </item>
+        <item>Sensory Garden</item>
+
+        <item>Theme Gardens</item>
+        <item>Plant Selection</item>
+        <item>Gardening Skills</item>
+        <item>Easy Gardening</item>
+        <item>Equipment</item>
+
+        <item>Garden Activities</item>
+        <item>Therapy Gardening</item>
+        <item>Therapy and Rehabilitation</item>
+
+    </string-array>
+
+    <string-array name="irrigation_uri">
+        <item> https://drive.google.com/uc?id=1XXd4PwFY7WDgF2nCWoyTkBbUuQ-q0Q7j&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1XOxjRH9ZawFIUFr_XV6XgAlEtuPaNNuX&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1eJr6gM39QUkWqVIw2oe8xjZ-4plxnIhM&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1MVWCaakwCh3ag2xNerHnplNUqAnpcAU4&amp;authuser=0 </item>
+    </string-array>
+
+    <string-array name="irrigation_names">
+
+        <item>Irrigation With Artificial Rain </item>
+        <item>Subsurface Irrigation </item>
+        <item>Watering Part 1 </item>
+        <item>Ways of Irrigation </item>
+
+    </string-array>
+
+
+    <string-array name="planting_uri">
+        <item> https://drive.google.com/uc?id=1jhZkY3YhTmwTduGDk9tAYh6\-302FgEvT&amp;export=download </item>
+        <item> https://drive.google.com/uc?export=download&amp;id=1S9jJLGoI2TK5JuaGPTe_wfOnLk39lmQj&amp;authuser=0</item>
+        <item> https://drive.google.com/uc?export=download&amp;1FCaF4H2C21sG0h2zZoVZTwQ-KjR1hQs1&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1Lpebub4sfDhFoa_XfqFRPMF0ZHNu3FOX&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1Eq-cCH5o1En6drSjQDyXp6Tyb0jfUYX1&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1Z7qjV0uX8vNZgJ0XcGu2hJ_hvIMXbJqu&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1HJtZ8Lps5nV3vXXzAIgfR5wfspP5A9mv&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1XOxjRH9ZawFIUFr_XV6XgAlEtuPaNNuX&amp;authuser=0 </item>
+    </string-array>
+
+    <string-array name="planting_names">
+
+        <item> How to Dig a Hole Part 1 </item>
+        <item> How to Dig a Hole Part 2 </item>
+        <item> Planting Part 1 </item>
+        <item> Planting Part 2 </item>
+        <item> Planting Part 3 </item>
+        <item> Sowing Part 1 </item>
+        <item> Sowing Part 2 </item>
+
+    </string-array>
+
+
+    <string-array name="pruning_uri">
+        <item> https://drive.google.com/uc?export=download&amp;id=1CSRdDvd9b67lZ06DXl0yK0ls_4ddc6PN </item>
+        <item> https://drive.google.com/uc?id=1lBuUqBmwIKtvFu-5bnDMHT64HYgwy0bK&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1lHFIPlER1-aGOp9smg7BuBQ3xO08OUl6&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="pruning_names">
+        <item> Pruning rules </item>
+        <item> Stage 2 - Clipping Part 1 </item>
+        <item> Stage 2 - Clipping Part 3 </item>
+
+    </string-array>
+
+
+    <string-array name="mulching_uri">
+        <item> https://drive.google.com/uc?id=1vyY7mR2VYDkLPHSb1cVUS19FDwU1U8a3&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=13pV1ryHwXmj8I7RU3pbTULqOA9p8pV3p&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1h_MzxsNH0-aKlZo-YJHPgkKEfu0t4pCf&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1kf-1BqWAMAQM2PWmMZnCnL05bpdTgsmJ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1-qW7vW5u85GcMSLUzmzIV8SdAhNuNcim&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1IExjUuqUgGf09rys1yVFK_E2TY0QvcGa&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1SodPs4Si2bstoNAk0BQx_qvKnBZcFNOB&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1\-\-8m8COY3Ooc2m7XcYKqY82FISyLWeiw&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=18qCt34uELEmzLOvNKD_sLu60wI6CWI32&amp;authuser=0 </item>
+    </string-array>
+
+    <string-array name="mulching_names">
+        <item> Best Time for Weeding a Garden </item>
+        <item> How Often Should You Weed a Garden </item>
+        <item> How to Weed the Garden Properly </item>
+        <item> Mulch itself is any material </item>
+        <item> To mulch, follow these steps Part 1 </item>
+        <item> To mulch, follow these steps Part 2 </item>
+        <item> To mulch, follow these steps Part 3 </item>
+        <item> Weeding and Mulching </item>
+        <item> Why Mulch </item>
+
+    </string-array>
+
+
+
+
+    <string-array name="test">
+        <item> https://drive.google.com/uc?id=1u05InPvhARS_J-2SNKSkQ5IEibgyLTrs&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="test_name">
+        <item> test </item>
+
+    </string-array>
+
 
 
 </resources>

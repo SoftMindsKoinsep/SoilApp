@@ -1,30 +1,15 @@
 package eu.soilErasmus.soil;
 
-class Plant {
-    String name;
-    String description;
-    int assetResource;
-    boolean visibility;
+public class Plant {
+    private final String name;
+    //private final String description;
+    private final int assetResource;
+    //private boolean visibility;
 
 
-    public Plant(String name, String description,int assetResource) {
+    public Plant(String name,int assetResource) {
         this.name = name;
-        this.description = description;
-        this.visibility = false;
         this.assetResource = assetResource;
-    }
-
-    public boolean isVisible() {
-        return visibility;
-    }
-
-    public void setVisibility(boolean visibility) {
-        this.visibility = visibility;
-    }
-
-
-    public String getDescription() {
-        return description;
     }
 
     public int getAssetResource() {

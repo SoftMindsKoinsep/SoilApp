@@ -1,17 +1,21 @@
-# SoilErasmus  
+# SoilErasmus 
+SoilErasmus
+ 
 
-How do i set up SoilErasmus ?
+How do i Set up my project ?
 
-First of all we will need to install Android Studio to run our app.
-You can do that by clicking the link below 👇:
+First off all we will need to have install the android studio on our computer.
+You can download the app from the link below 👇:
 https://developer.android.com/studio/install
 
-After you have downloaded Android Studio, download the repository in your computer. 
+After you set up the application you have to download the repository on computer 
 
+On the repository file you will find the soolApp file.
+Inside the file you will find an other file named Main.
 
 In order to open the app:
 -extract the files.
 -open the android studio app.
--open project */SoilApp.
+-open project */soilApp-main.
 
 

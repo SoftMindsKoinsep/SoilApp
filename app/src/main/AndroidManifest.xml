@@ -20,14 +20,26 @@
         android:icon="@drawable/soil_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Soil.NoActionBar"
+        android:theme="@style/Theme.Soil"
         tools:targetApi="31">
         <activity
+            android:name=".about_page"
+            android:exported="false"
+            />
+        <activity
             android:name=".navigation_page"
-            android:exported="false" />
+            android:configChanges="orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".account_info_page"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
@@ -44,20 +56,18 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".sign_in_page"
+            android:name=".log_in_page"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".youtubePlayer"
-            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+            android:name=".videoPlayer"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:exported="false" />
         <activity
             android:name=".ARCamera"
             android:exported="false"
-            android:label="@string/title_activity_artificial_shovel"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Soil.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".settings_page"

@@ -22,7 +22,6 @@ import com.google.ar.core.Session;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.ArSceneView;
 import com.google.ar.sceneform.Node;
-import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.SceneView;
 import com.google.ar.sceneform.Sceneform;
 import com.google.ar.sceneform.math.Vector3;
@@ -32,8 +31,6 @@ import com.google.ar.sceneform.rendering.ViewRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.BaseArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
-import com.gorisse.thomas.sceneform.light.EnvironmentLightsEstimate;
-import com.gorisse.thomas.sceneform.light.LightEstimationConfig;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -47,8 +44,7 @@ public class ARCamera extends AppCompatActivity implements
     private ArFragment arFragment;
     private Renderable model;
     private ViewRenderable viewRenderable;
-    private ArrayList<TransformableNode> modelList;
-    private Button deleteNodeButton;
+    //private ArrayList<TransformableNode> modelList;
 
 
     @Override
@@ -94,37 +90,8 @@ public class ARCamera extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
 
-        deleteNodeButton = findViewById(R.id.deleteAll);
-        deleteNodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(ARCamera.this);
-                builder.setTitle("Trash all?");
-
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        for ( i = 0; i < modelList.size(); i++) {
-                            modelList.get(i).setParent(null);
-                        }
-                    }
-                });
-
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-                AlertDialog mDialog = builder.create();
-                mDialog.show();
-
-            }
-        });
-
-        modelList = new ArrayList<>();
+        //modelList = new ArrayList<TransformableNode>();
         loadModels();
 
     }
@@ -148,7 +115,7 @@ public class ARCamera extends AppCompatActivity implements
                 });
 
         ViewRenderable.builder()
-                .setView(this, R.layout.view_model_title)
+                .setView(this, R.layout.view_3dmodel_title)
                 .build()
                 .thenAccept(viewRenderable -> {
                     ARCamera activity = weakActivity.get();
@@ -174,14 +141,13 @@ public class ARCamera extends AppCompatActivity implements
         anchorNode.setParent(arFragment.getArSceneView().getScene());
 
         // Create the transformable model and add it to the anchor.
-        TransformableNode model = new TransformableNode(arFragment.getTransformationSystem());
-        model.setParent(anchorNode);
-        model.setRenderable(this.model).animate(true).start();
-        model.select();
-        modelList.add(model);
+        TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
+        transformableNode.setParent(anchorNode);
+        transformableNode.setRenderable(this.model).animate(true).start();
+        //modelList.add(transformableNode);
 
         Node titleNode = new Node();
-        titleNode.setParent(model);
+        titleNode.setParent(transformableNode);
         titleNode.setEnabled(false);
         titleNode.setLocalPosition(new Vector3(0.0f, 1.0f, 0.0f));
         titleNode.setRenderable(viewRenderable);
@@ -189,10 +155,38 @@ public class ARCamera extends AppCompatActivity implements
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-
-    }
 }
+
+/*
+        Button deleteNodeButton = findViewById(R.id.deleteAll);
+        deleteNodeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(ARCamera.this);
+                builder.setTitle("Trash all?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        for ( i = 0; i < modelList.size(); i++) {
+                            Toast.makeText(getApplicationContext(),"yo",Toast.LENGTH_SHORT).show();
+                            //Διαγραφει μονο τα μοντελα και οχι τα γραφικα MemoryOutOfBounds
+                            // modelList.get(i).setRenderable(null);
+                        }
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog mDialog = builder.create();
+                mDialog.show();
+
+            }
+        });
+ */

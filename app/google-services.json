@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "46910950889",
+    "firebase_url": "https://soilapp-6e872-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "soilapp-6e872",
+    "storage_bucket": "soilapp-6e872.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46910950889:android:cdc4bc570652e4162e8f78",
+        "android_client_info": {
+          "package_name": "eu.soilErasmus.soil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46910950889-b5f429o425ae3m3gvu0rugb1i1331t46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDERHcemUjEnmSEfAjl2f3ZSFachvqfbSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46910950889-b5f429o425ae3m3gvu0rugb1i1331t46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
