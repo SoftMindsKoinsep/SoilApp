@@ -8,4 +8,7 @@ First of all we will need to install Android Studio to run our app. You can do t
 
 After you have downloaded Android Studio, download the repository in your computer.
 
-In order to open the app: -extract the files. -open the android studio app. -open project */SoilApp.
+In order to open the app: 
+    -extract the files. 
+    -open the android studio app. 
+    -open project */SoilApp.
