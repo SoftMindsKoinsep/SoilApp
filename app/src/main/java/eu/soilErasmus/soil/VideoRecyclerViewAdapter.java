@@ -94,7 +94,7 @@ public class VideoRecyclerViewAdapter extends RecyclerView.Adapter<VideoRecycler
 
             playerView = itemView.findViewById(R.id.playerView);
             progressBar = itemView.findViewById(R.id.progressBar);
-            videoTitle = itemView.findViewById(R.id.title);
+            videoTitle = itemView.findViewById(R.id.videoTitle);
             playerView.setOnClickListener(view -> exoPlayer.prepare());
 
         }

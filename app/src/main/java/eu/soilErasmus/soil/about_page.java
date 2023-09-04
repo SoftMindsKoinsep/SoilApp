@@ -20,18 +20,6 @@ public class about_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_page);
 
-        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
-
-        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
-            backButton = view.findViewById(R.id.backButton);
-
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
-            marginLayoutParams.topMargin = insets.top;
-            backButton.setLayoutParams(marginLayoutParams);
-
-            return WindowInsetsCompat.CONSUMED;
-        });
         backButton = findViewById(R.id.backButton);
         erasmusImage = findViewById(R.id.erasmusImage);
         fundedByImage = findViewById(R.id.fundedByImage);
@@ -39,11 +27,20 @@ public class about_page extends AppCompatActivity {
         erasmusImage.setBackgroundColor(Color.TRANSPARENT);
         fundedByImage.setBackgroundColor(Color.TRANSPARENT);
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
+
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
+            marginLayoutParams.topMargin = insets.top;
+            backButton.setLayoutParams(marginLayoutParams);
+
+            return WindowInsetsCompat.CONSUMED;
+        });
+
+        backButton.setOnClickListener(view -> finish());
+
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        backButton.setOnClickListener(view -> finish());
-    }
+
 }

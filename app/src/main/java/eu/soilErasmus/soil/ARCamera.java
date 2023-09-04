@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentOnAttachListener;
+import androidx.media3.exoplayer.ExoPlayer;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -41,11 +42,13 @@ public class ARCamera extends AppCompatActivity implements
         BaseArFragment.OnSessionConfigurationListener,
         ArFragment.OnViewCreatedListener {
 
-    private ArFragment arFragment;
-    private Renderable model;
-    private ViewRenderable viewRenderable;
-    //private ArrayList<TransformableNode> modelList;
-
+    ArFragment arFragment;
+    Renderable model;
+    ViewRenderable viewRenderable;
+    private ArrayList<TransformableNode> modelList;
+    private ArrayList<AnchorNode> anchorList;
+    private ArrayList<Node> nodeList;
+    Button deleteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class ARCamera extends AppCompatActivity implements
                         .commit();
             }
         }
+        deleteButton = findViewById(R.id.deleteButton);
     }
 
     @Override
@@ -82,30 +86,31 @@ public class ARCamera extends AppCompatActivity implements
 
     @Override
     public void onViewCreated(ArSceneView arSceneView) {
-        arFragment.setOnViewCreatedListener(null);
-        arSceneView.setFrameRateFactor(SceneView.FrameRate.FULL);
+        arFragment.setOnViewCreatedListener( arSceneView1->
+                arSceneView1.setFrameRateFactor(SceneView.FrameRate.FULL)
+        );
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-
-        //modelList = new ArrayList<TransformableNode>();
-        loadModels();
-
-    }
-
-    public void loadModels() {
-        WeakReference<ARCamera> weakActivity = new WeakReference<>(this);
+        deleteButton.setOnClickListener(view -> deleteModels());
+        modelList = new ArrayList<TransformableNode>();
+        anchorList = new ArrayList<AnchorNode>();
+        nodeList = new ArrayList<Node>();
 
         Bundle plantPageInteger = getIntent().getExtras();
         int modelResource = plantPageInteger.getInt("modelForAR");
+        loadModels(modelResource);
+    }
+
+    public void loadModels(int modelResource) {
+        WeakReference<ARCamera> weakActivity = new WeakReference<>(this);
 
         ModelRenderable.builder()
                 .setSource(this, modelResource)
                 .setIsFilamentGltf(true)
-                .setAsyncLoadEnabled(true)
                 .build()
                 .thenAccept(model -> {
                     ARCamera activity = weakActivity.get();
@@ -130,21 +135,25 @@ public class ARCamera extends AppCompatActivity implements
     }
 
     public void onTapPlane(HitResult hitResult, Plane plane, MotionEvent motionEvent) {
-
         if (model == null || viewRenderable == null) {
             Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show();
             return;
         }
+
+
         // Create the Anchor.
         Anchor anchor = hitResult.createAnchor();
         AnchorNode anchorNode = new AnchorNode(anchor);
         anchorNode.setParent(arFragment.getArSceneView().getScene());
 
+        anchorList.add(anchorNode);
+
         // Create the transformable model and add it to the anchor.
         TransformableNode transformableNode = new TransformableNode(arFragment.getTransformationSystem());
         transformableNode.setParent(anchorNode);
         transformableNode.setRenderable(this.model).animate(true).start();
-        //modelList.add(transformableNode);
+
+        modelList.add(transformableNode);
 
         Node titleNode = new Node();
         titleNode.setParent(transformableNode);
@@ -153,8 +162,34 @@ public class ARCamera extends AppCompatActivity implements
         titleNode.setRenderable(viewRenderable);
         titleNode.setEnabled(true);
 
+        nodeList.add(titleNode);
+
     }
 
+    public void deleteModels(){
+
+        for (TransformableNode transformableNode : modelList){
+            transformableNode.getRenderableInstance().destroy();
+
+        }
+
+        for (Node titleNode : nodeList){
+            titleNode.setParent(null);
+
+        }
+
+        for (AnchorNode anchor : anchorList){
+            anchor.setAnchor(null);
+        }
+
+    }
+
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        deleteModels();
+    }
 }
 
 /*

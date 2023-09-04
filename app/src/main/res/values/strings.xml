@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="true">Soil</string>
     <string name="log_in" translatable="true">LOG IN</string>
     <string name="sign_up" translatable="true">SIGN UP</string>
@@ -65,6 +65,7 @@
     <string name="open_plant_page">open plant page</string>
     <string name="open_settings_page">open settings page</string>
     <string name="open_about_page">open About page</string>
+    <string name="delete">Delete</string>
 
 
     <string-array name="settings_items">
@@ -126,124 +127,559 @@
 
     <string-array name="video_categories">
 
-        <item>Irrigation</item>
-        <item>Planting</item>
-        <item>Pruning</item>
+        <item>Watering</item>
+        <item>Digging, Planting and Sowing</item>
+        <item>Pruning and Clipping</item>
         <item>Weeding and Mulching</item>
-        <item>Flower Crops</item>
+        <item>Flower Picking and Arranging</item>
 
-        <item>Craft Activities</item>
-        <item>Harvesting</item>
-        <item>Cooking from the Garden</item>
-        <item>Special Needs Gardening </item>
-        <item>Sensory Garden</item>
+        <item>Crafts Activities Using Materials from the Garden</item>
+        <item>Harvesting Garden Produce</item>
+        <item>Cooking Food from the Garden</item>
+        <item>Special Needs Gardening</item>
+        <item>Sensory Gardens</item>
 
         <item>Theme Gardens</item>
         <item>Plant Selection</item>
-        <item>Gardening Skills</item>
-        <item>Easy Gardening</item>
-        <item>Equipment</item>
+        <item>Gardening Skills for People with Disabilities</item>
+        <item>Making a Garden Easy to Use for People with Disabilities</item>
+        <item>Gardening Equipment for People with Disabilities</item>
 
-        <item>Garden Activities</item>
-        <item>Therapy Gardening</item>
+        <item>Garden Activities with People with Disabilities</item>
+        <item>What is Therapeutic Horticulture</item>
         <item>Therapy and Rehabilitation</item>
 
     </string-array>
 
-    <string-array name="irrigation_uri">
-        <item> https://drive.google.com/uc?id=1XXd4PwFY7WDgF2nCWoyTkBbUuQ-q0Q7j&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1XOxjRH9ZawFIUFr_XV6XgAlEtuPaNNuX&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1eJr6gM39QUkWqVIw2oe8xjZ-4plxnIhM&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1MVWCaakwCh3ag2xNerHnplNUqAnpcAU4&amp;authuser=0 </item>
+    <string-array name="watering_uri">
+        <item> https://drive.google.com/uc?id=1gF7yZZW8LsCntiVOQ_C6EeeSAE4YUzpA&amp;authuser=0</item>
+        <item> https://drive.google.com/uc?id=1Qb-6k9OuQY7mH4B_mOabA3yqnDuZLKoI&amp;authuser=0</item>
+        <item> https://drive.google.com/uc?id=1rKaYhX0p2aoWnDPCkuUnwoaiDNiZifXR&amp;authuser=0</item>
+
+        <item> https://drive.google.com/uc?id=1RIJ5qdBEssjl4ZT8jPD83khlh44Pxjcm&amp;authuser=0</item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1tl-SNIt3_5VQSl1X4D5T9efxWUHZvH6J&amp;authuser=0</item>
+        <item> https://drive.google.com/uc?id=1dn6G6rQ9vXt-ut5FtybnaWrxOy0PtPBP&amp;authuser=0</item>
+        <item> https://drive.google.com/uc?id=1wLUU_TRxa7i0knO2GnMIoVA2DSIBQ53Q&amp;authuser=0</item>
+
     </string-array>
 
-    <string-array name="irrigation_names">
+    <string-array name="watering_names">
 
-        <item>Irrigation With Artificial Rain </item>
-        <item>Subsurface Irrigation </item>
-        <item>Watering Part 1 </item>
-        <item>Ways of Irrigation </item>
+        <item> What is Irrigation </item>
+        <item> Ways of Irrigation </item>
+        <item> Drip Irrigation </item>
+
+        <item> Irrigation with Artificial Rain </item>
+        <item> Subsurface Irrigation </item>
+        <item> Surface Irrigation </item>
+        <item> Watering </item>
 
     </string-array>
 
 
     <string-array name="planting_uri">
-        <item> https://drive.google.com/uc?id=1jhZkY3YhTmwTduGDk9tAYh6\-302FgEvT&amp;export=download </item>
-        <item> https://drive.google.com/uc?export=download&amp;id=1S9jJLGoI2TK5JuaGPTe_wfOnLk39lmQj&amp;authuser=0</item>
-        <item> https://drive.google.com/uc?export=download&amp;1FCaF4H2C21sG0h2zZoVZTwQ-KjR1hQs1&amp;authuser=0  </item>
-        <item> https://drive.google.com/uc?id=1Lpebub4sfDhFoa_XfqFRPMF0ZHNu3FOX&amp;authuser=0  </item>
-        <item> https://drive.google.com/uc?id=1Eq-cCH5o1En6drSjQDyXp6Tyb0jfUYX1&amp;authuser=0  </item>
-        <item> https://drive.google.com/uc?id=1Z7qjV0uX8vNZgJ0XcGu2hJ_hvIMXbJqu&amp;authuser=0  </item>
-        <item> https://drive.google.com/uc?id=1HJtZ8Lps5nV3vXXzAIgfR5wfspP5A9mv&amp;authuser=0  </item>
-        <item> https://drive.google.com/uc?id=1XOxjRH9ZawFIUFr_XV6XgAlEtuPaNNuX&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1ANxH7RZNnShJ5ZhmtYR87H_ti7dmBgPV&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=17Dhl-WbhZsSjzPtR6gi-s30TjcKGmoYs&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=173JTuzxVQTFUA_EwPRSPMqZS1t2kNKaI&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1uSFG2fRXCX_qT_Bl8nHliQFkM8SMi9Ik&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1RSMb14HzIh3j31ccvtPyfKQjoC2lCrfb&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1EnfRQE3yNkvfE0hp2vwhVgmzPpzChpJy&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1qxEv6Jh-kVQ3koIgIYv1OwmdpwjMu7Bl&amp;authuser=0 </item>
+
     </string-array>
 
     <string-array name="planting_names">
 
-        <item> How to Dig a Hole Part 1 </item>
-        <item> How to Dig a Hole Part 2 </item>
-        <item> Planting Part 1 </item>
-        <item> Planting Part 2 </item>
-        <item> Planting Part 3 </item>
-        <item> Sowing Part 1 </item>
-        <item> Sowing Part 2 </item>
+        <item> How to Dig a Hole (Part 1) </item>
+        <item> How to Dig a Hole (Part 2) </item>
+        <item> Planting (Part 1) </item>
+
+        <item> Planting (Part 2) </item>
+        <item> Planting (Part 3) </item>
+        <item> Sowing (Part 1) </item>
+        <item> Sowing (Part 2) </item>
 
     </string-array>
 
 
     <string-array name="pruning_uri">
-        <item> https://drive.google.com/uc?export=download&amp;id=1CSRdDvd9b67lZ06DXl0yK0ls_4ddc6PN </item>
-        <item> https://drive.google.com/uc?id=1lBuUqBmwIKtvFu-5bnDMHT64HYgwy0bK&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1lHFIPlER1-aGOp9smg7BuBQ3xO08OUl6&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=17sQAjhMTRCyNWO9RUKeuMUgUAdmHF6KX&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1CGzQwLBdHtXUMz-39A_mxl3h4VaLhGR2&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1wBAlmwePD4PbhlEUrLSLyuq_gtPp4BwU&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1G4sHT1ksXFWHRvakzEb-Zk_FvONx9ztO&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1NxMB0Y0LFMi52Ext2nfJJ6E2Wney4vF5&amp;authuser=0 </item>
 
     </string-array>
 
     <string-array name="pruning_names">
+
         <item> Pruning rules </item>
-        <item> Stage 2 - Clipping Part 1 </item>
-        <item> Stage 2 - Clipping Part 3 </item>
+        <item> Pruning </item>
+        <item> Clipping (Part 1) </item>
+        <item> Clipping (Part 2) </item>
+        <item> Clipping (Part 3) </item>
 
     </string-array>
 
 
     <string-array name="mulching_uri">
-        <item> https://drive.google.com/uc?id=1vyY7mR2VYDkLPHSb1cVUS19FDwU1U8a3&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=13pV1ryHwXmj8I7RU3pbTULqOA9p8pV3p&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1h_MzxsNH0-aKlZo-YJHPgkKEfu0t4pCf&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1kf-1BqWAMAQM2PWmMZnCnL05bpdTgsmJ&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1-qW7vW5u85GcMSLUzmzIV8SdAhNuNcim&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1IExjUuqUgGf09rys1yVFK_E2TY0QvcGa&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1SodPs4Si2bstoNAk0BQx_qvKnBZcFNOB&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=1\-\-8m8COY3Ooc2m7XcYKqY82FISyLWeiw&amp;authuser=0 </item>
-        <item> https://drive.google.com/uc?id=18qCt34uELEmzLOvNKD_sLu60wI6CWI32&amp;authuser=0 </item>
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1hv8YYEsV4v0UVCT1H758jxidZFah3Zcb&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1zovf8pOpGawpqevpoykEnSfj3IrnNePx&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1BZhoIpMDHm55GN5OVO0nlO-y6lGs71Qi&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1iu2F2ZpZy_z2IEmcN3LzxpkRlm15zb0v&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1zHbXExuk93Torc1ZH8JCbCgM9RX9CTc4&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1P9CNcnTwnfRQCHoPdATucyI0dJmED67f&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=18kSfQCho9g5mUBwKD_sKkBYTdHhUkYKY&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1BjwP9p5NVHXm4U30hMIQWT_WrLA8mWPM&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=173fUPF5j7jBmprLmYy6FhJaQ8OhKx4v3&amp;authuser=0 </item>
+
     </string-array>
 
     <string-array name="mulching_names">
+
+        <item> Weeding and Mulching </item>
         <item> Best Time for Weeding a Garden </item>
         <item> How Often Should You Weed a Garden </item>
         <item> How to Weed the Garden Properly </item>
         <item> Mulch itself is any material </item>
+
         <item> To mulch, follow these steps Part 1 </item>
         <item> To mulch, follow these steps Part 2 </item>
         <item> To mulch, follow these steps Part 3 </item>
-        <item> Weeding and Mulching </item>
         <item> Why Mulch </item>
 
     </string-array>
 
 
+    <string-array name="flower_uri">
 
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1EVU1OveoYTyZUWpL39Xt6glNI_nY6oET&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1-wRQB3799h0b2ufxxG0A3OiTYji-k3KE&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1CWxpm1GgEvPgt53XUVA9dwYOhZg2GZWO&amp;authuser=0 </item>
 
-    <string-array name="test">
-        <item> https://drive.google.com/uc?id=1u05InPvhARS_J-2SNKSkQ5IEibgyLTrs&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1SllVQESiK8H3OOUJNYnO6wpnEyLh703C&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=19Rt0mGUBm2G7FmiTKK3YYqTgC6YNyTP0&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1YvuPmBQltV6lNI3mX4Gya1uZtz0iyGtm&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1BPjQEt-iK9Ru3WLjChGINUZ1AMvP89i9&amp;authuser=0 </item>
 
     </string-array>
 
-    <string-array name="test_name">
-        <item> test </item>
+    <string-array name="flower_names">
+
+        <item> Division of Flower Crops </item>
+        <item> Flower Picking and Arranging </item>
+        <item> General Guidelines for Harvesting </item>
+
+        <item> How to Arrange Flowers (Part 1) </item>
+        <item> How to Arrange Flowers (Part 2) </item>
+        <item> How to Arrange Flowers (Part 3) </item>
+        <item> How to Harvest Cut Flowers </item>
 
     </string-array>
 
+
+    <string-array name="material_activities_uri">
+
+        <item> https://drive.google.com/uc?id=1bIOkLLeMgN_0NX61LcjnKNXwVdWfQQZs&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1DF1tok709mnmCx97z9vvLT5Hrwkq6TiR&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1XBOPMqfmlz0uaShMSa8juwwQwh6McIWC&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="material_activities_names">
+
+        <item> Crafts Activities Using Materials from the Garden (Part 1) </item>
+        <item> Crafts Activities Using Materials from the Garden (Part 2) </item>
+        <item> Script for Students </item>
+
+    </string-array>
+
+
+    <string-array name="harvesting_uri">
+
+        <item> https://drive.google.com/uc?id=1wHnTTfBxWLfArml3t8fmu3EyXl4nAHUU&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1JuVcaxnPqkYNncyf7qjso7Kz0AR2oPsu&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1juVKsMbMXZ99P0NYIXSWqi3JJ1sYr-GR&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1VcGQ9wZVJWP-3V8qPCgHMkc3Zcu9DjVb&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1bRt2SnDrYa-Ls73Ekbgzy-Jq56RW72xE&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1v_xE4w1EjivrCVQNkkF947xEbmzp3tMa&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1EkX2_zCYhBV5-IT8TK7Ln4_GlpsEByJp&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1LMmWvps7TgEykvWmcujwyANDkXKF43HO&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1Rj7LFOXx8HkSBd0xEqqSXbgXJ_vBQbYA&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1SWxWL-32BJCbztSnxj0YBB0-DDoilYI3&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=15b4rVPbCB8nTM4HfIg9z_BKf1bOMURGI&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1eK7dNfRwFVx0ffWVvv9JHKe0YLWoMTOF&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1vGuQMBkNuE221Bo1FBLbQtz-SiOH-6fi&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1w7bWVZhcoH_z70pKyVEwNZk2QC5fhtz5&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1B598CiuuYJ1U0rz3_t03H2jfqxrPQlSv&amp;authuser=0  </item>
+
+        <item> https://drive.google.com/uc?id=1vS9ceR2fZnoaiR4K1_ynomsW8uXUynhe&amp;authuser=0  </item>
+        <item> https://drive.google.com/uc?id=1kdrZXtS9gGqp4GDhyS1ejF3i0HWh20Cz&amp;authuser=0  </item>
+
+    </string-array>
+
+    <string-array name="harvesting_names">
+
+        <item> Harvesting Guidelines by Crops (Part 1) </item>
+        <item> Harvesting Guidelines by Crops (Part 2) </item>
+        <item> Harvesting Guidelines by Crops (Part 3) </item>
+        <item> Harvesting Guidelines by Crops (Part 4) </item>
+        <item> Harvesting Guidelines by Crops (Part 5) </item>
+
+        <item> Harvesting Guidelines by Crops (Part 6) </item>
+        <item> Harvesting Guidelines by Crops (Part 7) </item>
+        <item> Harvesting Guidelines by Crops (Part 8) </item>
+        <item> Harvesting Guidelines by Crops (Part 9) </item>
+        <item> Harvesting Guidelines by Crops (Part 10) </item>
+
+        <item> Harvesting Guidelines by Crops (Part 11) </item>
+        <item> Harvesting Vegetables </item>
+        <item> Parsley and Mint (Part 1) </item>
+        <item> Parsley and Mint (Part 2) </item>
+        <item> Vegetable Harvesting Principles (Part 1) </item>
+
+        <item> Vegetable Harvesting Principles (Part 2) </item>
+        <item> Vegetable Harvesting Principles (Part 3) </item>
+
+    </string-array>
+
+
+    <string-array name="food_uri">
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1EVU1OveoYTyZUWpL39Xt6glNI_nY6oET&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1-wRQB3799h0b2ufxxG0A3OiTYji-k3KE&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1CWxpm1GgEvPgt53XUVA9dwYOhZg2GZWO&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1SllVQESiK8H3OOUJNYnO6wpnEyLh703C&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=19Rt0mGUBm2G7FmiTKK3YYqTgC6YNyTP0&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1YvuPmBQltV6lNI3mX4Gya1uZtz0iyGtm&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1BPjQEt-iK9Ru3WLjChGINUZ1AMvP89i9&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="food_names">
+
+        <item> Division of Flower Crops </item>
+        <item> Flower Picking and Arranging </item>
+        <item> General Guidelines for Harvesting </item>
+
+        <item> How to Arrange Flowers (Part 1) </item>
+        <item> How to Arrange Flowers (Part 2) </item>
+        <item> How to Arrange Flowers (Part 3) </item>
+        <item> How to Harvest Cut Flowers </item>
+
+    </string-array>
+
+
+    <string-array name="special_needs_uri">
+        <item> https://drive.google.com/uc?id=1LspbrdJfFqp3\-3KZEROcNYBCLSFOL0FZ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1hEEwKihVgYYe5prHjMTl_DwIs-Q5HzNV&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1N9-cJONAv_cHuJFaHtf51aHV8LrE7uRq&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=10RLh4jIxzZSfnD6A30e_g0h1gwG4GwYw&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1eo7lovnYiTvflINgCdlBWQCqC4B-53RE&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1-RoTG1pscSJyc6fiyDv1d-5diaks-1ID&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1FEHubOnRvVHq5k5jJNKltmUuzKWYNO3Z&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1YC7RBaYIbDX2K2IFfIxugiYHGqIitvPG&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1lylHeGXH34nDv9QjgsQRrG7F24rzwKSF&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1GPTCF_u8I5w6M9aSb_giVcbJbzJbspCl&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="special_needs_names">
+
+        <item> Creating a Special Needs Garden (Part 1) </item>
+        <item> Creating a Special Needs Garden (Part 2) </item>
+        <item> Creating a Special Needs Garden (Part 3) </item>
+        <item> Garden Equipment for People with Disabilities </item>
+        <item> Garden Skills for People with Disabilities </item>
+
+        <item> Making a Garden Easy to Use for People with Disabilities (Part 1) </item>
+        <item> Making a Garden Easy to Use for People with Disabilities (Part 2) </item>
+        <item> Creating a Special Needs Garden (Part 1) </item>
+        <item> Creating a Special Needs Garden (Part 2) </item>
+        <item> Plant Selection for People with Disabilities </item>
+
+    </string-array>
+
+
+    <string-array name="sensory_uri">
+
+        <item> https://drive.google.com/uc?id=1lWYRQqRM65PFTsAg_XH4e9-yfAkfYBPd&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1g9ROVeF4sohk4-RtIosjCwDMujIevtkd&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1MPzMsjHOsv6fi2YeqdXss2fnNWI10\-4K&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1WyRsdC5TQwtmlLfDB-JcnQ2UlUpfAlT7&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1R-_BIGE37HKobKulxy3meKh7CX251xSK&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1UyHl0uxaSlEUc614zTgnisDEIzKAM6jr&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1zNLx2MN2bKXDY_7YDnHS5fQov_07yhq_&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1-IdKiLFAIh-qUnDcJKmlo32KQ-vXI0Qq&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=19hnDnwg9AFUFAReBiWlyfU_n61IWoFwA&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1ohEF1wqLaUTVFd-SuBRegYXGxMlEVhP1&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=19a_-0JLf-rcv3wSa02vvjCEna6YSb9A0&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1SVod91zRpG0uM6G32FzJ0lLFl1daQv4u&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1pxLcl3kt8TYRFKitajC7mRjEi5WZD8bB&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1i5mKBXzvcaaAaWxM2sGoumqsfRTmn7Ic&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1r6wxUgFjQGIAkTXTKuQRuOibUi9Tk7WB&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1g0TQtx4gyPCiSlreteswSXvgwuCg4LuZ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1Q23i5xheJ3OOlnHkk9FCO-ojXaHwWcM9&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="sensory_names">
+
+        <item> How to Create a Sensory Garden </item>
+        <item> Plants for Sensory Gardens (Part 1) </item>
+        <item> Plants for Sensory Gardens (Part 2) </item>
+        <item> Plants for Sensory Gardens (Part 3) </item>
+        <item> Sensory Garden Ideas (Part 1) </item>
+
+        <item> Sensory Garden Ideas (Part 2) </item>
+        <item> Sensory Garden Ideas (Part 3) </item>
+        <item> Sensory Garden Ideas (Part 4) </item>
+        <item> Sensory Garden Ideas (Part 5) </item>
+        <item> Sensory Garden Ideas (Part 6) </item>
+
+        <item> Sensory Garden Ideas (Part 7) </item>
+        <item> Sensory Garden Ideas (Part 8) </item>
+        <item> Sensory Garden Ideas (Part 9) </item>
+        <item> Sensory Garden Ideas (Part 10) </item>
+        <item> Sensory Garden Ideas (Part 11) </item>
+
+        <item> Sensory Garden Ideas (Part 12) </item>
+        <item> Sensory Gardens </item>
+
+    </string-array>
+
+
+    <string-array name="theme_uri">
+
+        <item> https://drive.google.com/uc?id=1cDqc5snti1s7BIyOfwj8EVcF4Ez7uNfQ&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=12M-y0DMA-GzsASGAtTfPyxrhPQPr1Cw7&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1FZ3xg5wtmewHSh7oz4LvVsFFxVKXpxua&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1C5q0yPcJiH3hVNL1hkmIuG9SSQajx7_t&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1droHm7iBwK9ZnN9oz_hwef6q0ha_0QrL&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1OE_CwG_6G34Q1y80Zphj21QfA6zz97VJ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1yjqB3PFSfXWcAo5XdmNM-zKsHd2uIhrW&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1GgjkRT5RiRxiVXxoUbdUJwI-dXdqwFt7&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1KAnvKbNOPY-sfCk34GVIgBV-bDg8bJQb&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="theme_names">
+
+        <item> Terrific Theme Gardens (Part 1) </item>
+        <item> Terrific Theme Gardens (Part 2) </item>
+        <item> Terrific Theme Gardens (Part 3) </item>
+        <item> Terrific Theme Gardens (Part 4) </item>
+        <item> Terrific Theme Gardens (Part 5) </item>
+
+        <item> Options Include (Part 1) </item>
+        <item> Options Include (Part 2) </item>
+        <item> Options Include (Part 3) </item>
+        <item> Theme Gardens </item>
+
+    </string-array>
+
+
+    <string-array name="plant_uri">
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1\-1YVOCVHtEK7W_XGvsH1RevcWijlFiXJ&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=14iZluyZYBx2wuA3gwi-hqglJ-mKp1YJg&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1_dyLjIX78du5hBFVeM-Q1xS99tLQzn-2&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1fTHZbu5AC9wjZslINxMpkYtEAERmrDJ6&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1dQpGcwS1aiSEAA3vthMdM5QX_tu0b_Gd&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=15nqrukffRXUNQZ-99QBfqQrpUHuk8YnQ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1apVyy4zmOpiPkWisbQbO7a6c2Y6bLMVy&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1wSEFF1j-q7zb-b9RoB7Jn_i5K9UgVOg7&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=12uTTaorxdLYojN5gXamNaYVGSIqt7RiB&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="plant_names">
+
+        <item> Plant Selection is and Organized Process (Part 1) </item>
+        <item> Plant Selection is and Organized Process (Part 2) </item>
+        <item> Plant Selection is and Organized Process (Part 3) </item>
+        <item> Plant Selection is and Organized Process (Part 4) </item>
+        <item> Plant Selection is and Organized Process (Part 5) </item>
+
+        <item> Plant Selection is and Organized Process (Part 6) </item>
+        <item> Plant Selection is and Organized Process (Part 7) </item>
+        <item> Plant Selection (Part 1) </item>
+        <item> Plant Selection (Part 2) </item>
+
+    </string-array>
+
+
+    <string-array name="skills_uri">
+
+        <item> https://drive.google.com/uc?id=1eM-99P_RNlfMcAY4F7rNdardYf-iwls-&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=18FXrjqKZIy8c02Tm_t18pioJt_cbw9Pm&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1l_o8AhHHTaCgrJdNfduqWVDNps66HBK2&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=19b-nkkZ5Q77RVMTzuWJKSRN74I6SGjHb&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1oQERIVqVaQ50fRkURz_-SHHSvFvpw24n&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="skills_names">
+        <item> Gardening Skills for People with Disabilities (Part 1) </item>
+        <item> Gardening Skills for People with Disabilities (Part 1) </item>
+        <item> Gardening Skills for People with Disabilities (Part 1) </item>
+        <item> Gardening Skills for People with Disabilities (Part 1) </item>
+        <item> Script for Trainers </item>
+
+    </string-array>
+
+
+    <string-array name="easy_garden_uri">
+
+        <item> https://drive.google.com/uc?id=1Lw0L1toIu3NJaUXqXSLEnY2jvEh72wtf&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=14OwM4dRNxSL1XCwQOdO-GTSjRpqZT6nm&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1E6XVcflnOsNOxKLfmUy3Oh5QV0cAZZ8V&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=15UtmAmSa41dAOunSY4lVdDCfrzrzBpWG&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1kuUJui9vKIPXFSysmgyaE1bW7VmbIO3B&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=12hxbXr9sKvzMG7_h1MW3hQ7I6GDgQqyC&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1f-3KpM3vicz3B7SIn4EZLlGqCXq_R8Hc&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="easy_garden_names">
+
+        <item> Easy accessibility in the surrounding place for people with disabilities (Part 1) </item>
+        <item> Easy accessibility in the surrounding place for people with disabilities (Part 2) </item>
+        <item> Easy accessibility in the surrounding place for people with disabilities (Part 3) </item>
+        <item> Make gardening easy for disabled people making the gardening activities easy for them (Part 1) </item>
+        <item> Make gardening easy for disabled people making the gardening activities easy for them (Part 2) </item>
+
+        <item> Make gardening easy for disabled people making the gardening activities easy for them (Part 3) </item>
+        <item> Making a Garden Easy Use for People with Disabilities </item>
+
+
+    </string-array>
+
+
+    <string-array name="tools_uri">
+
+        <item> https://drive.google.com/uc?id=1_KzqjHQBQqkHcVQFpEozAgZPZ81saTBZ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1Y5du5wbdNCqcGJaMZ9dro0hORJgqWvHW&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1hUrjDHK6Qw6x8ok3lgWbJfQTeM-MC1x4&amp;authuser=0 </item>
+        <item>https://drive.google.com/uc?id=1rrAY0COLvohq53fen8BF_ugEUAIWRV3s&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1Eo64PhCxJ1KOtCZgzvIlpEGNHrXmA7Vu&amp;authuser=0 </item>
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1dbNKghaO71KoepN_CfLVOaXAt1-fD4Yr&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="tools_names">
+
+        <item> Digging Hand Tools </item>
+        <item> Forks and Spades </item>
+        <item> Gardening Equipment for People with Disabilities (Part 1) </item>
+        <item> Gardening Equipment for People with Disabilities (Part 2) </item>
+        <item> Gardening Equipment for People with Disabilities (Part 3)</item>
+
+        <item> Long Reach Easy-Grip Hand Tools </item>
+
+    </string-array>
+
+
+    <string-array name="garden_activities_uri">
+
+        <item> https://drive.google.com/uc?id=1OM369KIOtMtB30AiVxZLO8LNffubF7NF&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1UVS3limcU2cRzQXd7kPYbGd2hohBDtjO&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1yL_gKQ22xvfhQFWtO4AAjmM19AWXviRz&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1vootQofQg2oxeZ2jF73Wjxba95304W5s&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=12BkmLACHSEqCa2SPvxR32vxanhsk4ChH&amp;authuser=0 </item>
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1qgXRXO5i42t2jQuS1GljSZYHCYl7SKNo&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1Nc15wWtzD4HDngE19H_S5sTVqt3U5DPZ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1XynVJWD8XB2hGheuiEKM80qy232fyRw7&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="garden_activities_names">
+
+        <item> Garden Activities with People with Disabilities </item>
+        <item> Gardening Activities (Part 1) </item>
+        <item> Gardening Activities (Part 2) </item>
+        <item> Gardening Activities (Part 3) </item>
+        <item> Gardening Activities (Part 4) </item>
+
+        <item> Gardening Activities (Part 5) </item>
+        <item> Gardening Activities (Part 6) </item>
+        <item> Gardening Activities (Part 7) </item>
+
+    </string-array>
+
+
+    <string-array name="therapeutic_uri">
+
+        <item> https://drive.google.com/uc?id=1Rf7Zrsdtf_R4WnGscN915_Q5lwEMAUux&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1G7g7juQ_onQInGHUAp1UgV6QdLFbTqhw&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1XCP2ftUR9feufpEA9HFK9JhH5Er0Bhpb&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1W2HeLmOsAaFkmFxzBPTEA_ONXR1dU6eU&amp;authuser=0 </item>
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1hW0A4KGw1MEMX6Uo1Sq3Zn6ZnaSpzZkb&amp;authuser=0 </item>
+
+        <item tools:ignore="Typos"> https://drive.google.com/uc?id=1ijp3KzxItp1AMDi78MPgHqUQUCGygAYd&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1Sf0RHEqtgViL0R2UE-DyxhTxKR-ZWdIe&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1OklPVvgzMKjCwZ4n8erMWOb02uHX44VL&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1XaiRF6Tz1nVCf40mxZzHQnooue6_4_GZ&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1t-PVfJmBasvBFh7UC6PB3eeoe-NcnIiZ&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="therapeutic_names">
+
+        <item> Have you ever heard of Therapeutic Gardening (Part 1) </item>
+        <item> Have you ever heard of Therapeutic Gardening (Part 2) </item>
+        <item> Have you ever heard of Therapeutic Gardening (Part 3) </item>
+        <item> Have you ever heard of Therapeutic Gardening (Part 4) </item>
+        <item> Have you ever heard of Therapeutic Gardening (Part 5) </item>
+
+        <item> Have you ever heard of Therapeutic Gardening (Part 6) </item>
+        <item> Have you ever heard of Therapeutic Gardening (Part 7) </item>
+        <item> What Makes a Therapy Garden (Part 1) </item>
+        <item> What Makes a Therapy Garden (Part 2) </item>
+        <item> What Makes a Therapy Garden (Part 3) </item>
+
+    </string-array>
+
+
+    <string-array name="therapy_uri">
+
+        <item> https://drive.google.com/uc?id=1Eh02KI6wf5Tg722aeAmrUOWsBVK9k8bN&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1MRvm_YTn8fVGBkzNiq_ura2iKwS4C9Gw&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1JFgoAsHMB2PONqcQQETkjSaB2Ndl_G4F&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1nr4a4Utyu54CdZd6ty0fBmtN6JfMCSv-&amp;authuser=0 </item>
+        <item> https://drive.google.com/uc?id=1ONR3wQitcOF3qAkc40VC6gVYoX4kAq2f&amp;authuser=0 </item>
+
+        <item> https://drive.google.com/uc?id=1rn6T-iEzf_WhDuA64Al2MompG-ymCtq7&amp;authuser=0 </item>
+
+    </string-array>
+
+    <string-array name="therapy_names">
+        <item> Therapy and Rehabilitation (Part 1) </item>
+        <item> Therapy and Rehabilitation (Part 2) </item>
+        <item> Therapy and Rehabilitation (Part 3) </item>
+        <item> Therapy and Rehabilitation (Part 4) </item>
+        <item> Therapy and Rehabilitation (Part 5) </item>
+
+        <item> Therapy and Rehabilitation (Part 6) </item>
+
+    </string-array>
 
 
 </resources>

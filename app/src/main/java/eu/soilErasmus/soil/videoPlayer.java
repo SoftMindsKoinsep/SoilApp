@@ -1,15 +1,15 @@
 package eu.soilErasmus.soil;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -28,57 +28,60 @@ public class videoPlayer extends AppCompatActivity {
     Button backButton;
     ImageView soilLogo;
     List<Video> videoPlaylist;
-    ExoPlayerRecyclerView videoRecyclerView;
-    ViewGroup.LayoutParams thisLayout;
-
+    RecyclerView videoRecyclerView;
+    WindowInsetsControllerCompat windowInsetsController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_youtube_player);
+        setContentView(R.layout.activity_video_player);
 
         videoRecyclerView = findViewById(R.id.video_recycler_view);
         soilLogo = findViewById(R.id.soilLogo);
         backButton = findViewById(R.id.backButton);
-        thisLayout = videoRecyclerView.getLayoutParams();
+
         exoPlayerList = new ArrayList<ExoPlayer>();
-
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT);
-            videoRecyclerView.setLayoutParams(layoutParams);
-            soilLogo.setVisibility(View.GONE);
-            backButton.setVisibility(View.GONE);
-        } else {
-
-            controlSystemUI();
-            soilLogo.setVisibility(View.VISIBLE);
-            backButton.setVisibility(View.VISIBLE);
-            videoRecyclerView.setLayoutParams(thisLayout);
-        }
         
         videoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
 
+            ViewGroup.MarginLayoutParams backLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
+            ViewGroup.MarginLayoutParams imageLayoutParams = (ViewGroup.MarginLayoutParams) soilLogo.getLayoutParams();
+            backLayoutParams.topMargin = insets.top;
+            imageLayoutParams.topMargin = insets.top;
+
+            backButton.setLayoutParams(backLayoutParams);
+            soilLogo.setLayoutParams(imageLayoutParams);
+
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     @Override
     protected void onResume(){
         super.onResume();
+        windowInsetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        controlSystemUI();
         backButton.setOnClickListener(view -> finish());
+
         Intent mIntent = getIntent();
         int intValue = mIntent.getIntExtra("videoCategoryClicked", 0);
         createPlaylist(intValue);
 
     }
+
     private void createPlaylist(int intValue) {
         String[] videoNames,videoUri;
 
         switch (intValue){
 
             default:
-                videoNames = getResources().getStringArray(R.array.irrigation_names);
-                videoUri = getResources().getStringArray(R.array.irrigation_uri);
+                videoNames = getResources().getStringArray(R.array.watering_names);
+                videoUri = getResources().getStringArray(R.array.watering_uri);
                 break;
 
             case 1:
@@ -97,17 +100,74 @@ public class videoPlayer extends AppCompatActivity {
                 break;
 
             case 4:
-                videoNames = getResources().getStringArray(R.array.test_name);
-                videoUri = getResources().getStringArray(R.array.test);
+                videoNames = getResources().getStringArray(R.array.flower_names);
+                videoUri = getResources().getStringArray(R.array.flower_uri);
                 break;
 
             case 5:
-                videoNames = getResources().getStringArray(R.array.test_name);
-                videoUri = getResources().getStringArray(R.array.test);
+                videoNames = getResources().getStringArray(R.array.material_activities_names);
+                videoUri = getResources().getStringArray(R.array.material_activities_uri);
                 break;
 
+            case 6:
+                videoNames = getResources().getStringArray(R.array.harvesting_names);
+                videoUri = getResources().getStringArray(R.array.harvesting_uri);
+                break;
 
+            case 7:
+                videoNames = getResources().getStringArray(R.array.food_names);
+                videoUri = getResources().getStringArray(R.array.food_uri);
+                break;
 
+            case 8:
+                videoNames = getResources().getStringArray(R.array.special_needs_names);
+                videoUri = getResources().getStringArray(R.array.special_needs_uri);
+                break;
+
+            case 9:
+                videoNames = getResources().getStringArray(R.array.sensory_names);
+                videoUri = getResources().getStringArray(R.array.sensory_uri);
+                break;
+
+            case 10:
+                videoNames = getResources().getStringArray(R.array.theme_names);
+                videoUri = getResources().getStringArray(R.array.theme_uri);
+                break;
+
+            case 11:
+                videoNames = getResources().getStringArray(R.array.plant_names);
+                videoUri = getResources().getStringArray(R.array.plant_uri);
+                break;
+
+            case 12:
+                videoNames = getResources().getStringArray(R.array.skills_names);
+                videoUri = getResources().getStringArray(R.array.skills_uri);
+                break;
+
+            case 13:
+                videoNames = getResources().getStringArray(R.array.easy_garden_names);
+                videoUri = getResources().getStringArray(R.array.easy_garden_uri);
+                break;
+
+            case 14:
+                videoNames = getResources().getStringArray(R.array.tools_names);
+                videoUri = getResources().getStringArray(R.array.tools_uri);
+                break;
+
+            case 15:
+                videoNames = getResources().getStringArray(R.array.garden_activities_names);
+                videoUri = getResources().getStringArray(R.array.garden_activities_uri);
+                break;
+
+            case 16:
+                videoNames = getResources().getStringArray(R.array.therapeutic_names);
+                videoUri = getResources().getStringArray(R.array.therapeutic_uri);
+                break;
+
+            case 17:
+                videoNames = getResources().getStringArray(R.array.therapy_names);
+                videoUri = getResources().getStringArray(R.array.therapy_uri);
+                break;
 
         }
             playerBuilder(videoNames,videoUri);
@@ -135,46 +195,33 @@ public class videoPlayer extends AppCompatActivity {
     }
 
 
-
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT);
-            videoRecyclerView.setLayoutParams(layoutParams);
-            soilLogo.setVisibility(View.GONE);
-            backButton.setVisibility(View.GONE);
-        } else {
-            controlSystemUI();
-            soilLogo.setVisibility(View.VISIBLE);
-            backButton.setVisibility(View.VISIBLE);
-            videoRecyclerView.setLayoutParams(thisLayout);
-        }
+        controlSystemUI();
     }
 
     public void controlSystemUI(){
-        WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
-        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
-            Button backButton = view.findViewById(R.id.backButton);
-            ImageView soilLogo = view.findViewById(R.id.soilLogo);
 
-            ViewGroup.MarginLayoutParams backLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
-            ViewGroup.MarginLayoutParams imageLayoutParams = (ViewGroup.MarginLayoutParams) soilLogo.getLayoutParams();
-            backLayoutParams.topMargin = insets.top;
-            imageLayoutParams.topMargin = insets.top;
-
-            backButton.setLayoutParams(backLayoutParams);
-            soilLogo.setLayoutParams(imageLayoutParams);
-
-            return WindowInsetsCompat.CONSUMED;
-        });
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            soilLogo.setVisibility(View.GONE);
+            backButton.setVisibility(View.GONE);
+            windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+            windowInsetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+        } else {
+            soilLogo.setVisibility(View.VISIBLE);
+            backButton.setVisibility(View.VISIBLE);
+            windowInsetsController.show(WindowInsetsCompat.Type.systemBars());
+        }
     }
 
     @Override
-    public void onBackPressed() {
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) finish();
-        else finish();
+    protected void onPause() {
+        super.onPause();
+        for (ExoPlayer video : exoPlayerList) {
+            video.stop();
+
+        }
     }
 
     @Override
@@ -184,5 +231,4 @@ public class videoPlayer extends AppCompatActivity {
             video.release();
         }
     }
-
 }

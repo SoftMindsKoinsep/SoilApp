@@ -18,12 +18,12 @@ import java.util.List;
 
 public class plant_page extends AppCompatActivity {
 
-    private List<Plant> plantList;
-    private RecyclerView plantRecyclerView;
-    private Button backButton;
+    List<Plant> plantList;
+    RecyclerView plantRecyclerView;
+    Button backButton;
 
     int [] resourcesList = {
-            R.raw.tomato_plant, R.raw.pepper, R.raw.kolokithia, R.raw.pumpkin,
+            R.raw.tomato_plant, R.raw.pepper, R.raw.clean_shovel, R.raw.pumpkin,
 
             R.raw.carrot ,R.raw.cauliflower, R.raw.fir, R.raw.fir2,
 

@@ -89,7 +89,16 @@ public class SettingsRecyclerViewAdapter extends RecyclerView.Adapter<SettingsRe
                     openAbout();
 
                 } else if (settingsItem.getName().equals(itemNames[2])) {
-                    if (firebaseUser != null) deleteUserData(firebaseAuth,firebaseUser);
+                    if (firebaseUser != null) {
+
+                        firebaseAuth.signOut();
+                        Toast.makeText(context, "To delete, please login again.", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(context, log_in_page.class);
+                        intent.putExtra("Account Delete",true);
+                        context.startActivity(intent);
+
+                    }
                     else Toast.makeText(context, "You haven't logged in yet.", Toast.LENGTH_SHORT).show();
 
                 } else if (settingsItem.getName().equals(itemNames[3])) {
@@ -109,47 +118,6 @@ public class SettingsRecyclerViewAdapter extends RecyclerView.Adapter<SettingsRe
             //privacy and security
         }
 
-        private void deleteUserData(FirebaseAuth firebaseAuth,FirebaseUser firebaseUser){
-
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-            databaseReference.child(firebaseUser.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    deleteUser(firebaseAuth,firebaseUser);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d(TAG,e.getMessage());
-                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-
-                }
-            });
-        }
-
-        private void deleteUser(FirebaseAuth firebaseAuth,FirebaseUser firebaseUser) {
-
-            firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        firebaseAuth.signOut();
-                        Toast.makeText(context, "Account deleted successfully!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(context, MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        context.startActivity(intent);
-
-                    } else {
-                        try {
-                            throw task.getException();
-                        } catch (Exception e){
-                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            });
-        }
 
         private void logOut(FirebaseAuth firebaseAuth){
             firebaseAuth.signOut();

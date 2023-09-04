@@ -22,22 +22,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soil"
         tools:targetApi="31">
+
         <activity
             android:name=".about_page"
             android:exported="false"
-            />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+
         <activity
             android:name=".navigation_page"
-            android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".account_info_page"
-            android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -49,17 +52,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".sign_up_page"
-            android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".log_in_page"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".videoPlayer"
             android:configChanges="orientation|screenSize|screenLayout"
@@ -69,18 +74,19 @@
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".settings_page"
-            android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".plant_page"
-            android:configChanges="orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+
 
         <meta-data
             android:name="com.google.ar.core"
