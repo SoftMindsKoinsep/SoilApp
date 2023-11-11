@@ -21,12 +21,15 @@ public class about_page extends AppCompatActivity {
         setContentView(R.layout.activity_about_page);
 
         backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(view -> finish());
+
         erasmusImage = findViewById(R.id.erasmusImage);
         fundedByImage = findViewById(R.id.fundedByImage);
 
         erasmusImage.setBackgroundColor(Color.TRANSPARENT);
         fundedByImage.setBackgroundColor(Color.TRANSPARENT);
 
+        //Analoga me ta insets ton status bars, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
@@ -37,10 +40,5 @@ public class about_page extends AppCompatActivity {
 
             return WindowInsetsCompat.CONSUMED;
         });
-
-        backButton.setOnClickListener(view -> finish());
-
     }
-
-
 }

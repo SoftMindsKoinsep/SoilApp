@@ -1,12 +1,14 @@
 package eu.soilErasmus.soil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -47,13 +49,18 @@ public class sign_up_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+//analoga me ta insets tou navigation bar kai me to state tou keyboard, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
-        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (v, insets) -> {
-            boolean imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime());
+        ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (v, windowInsets) -> {
+            boolean imeVisible = windowInsets.isVisible(WindowInsetsCompat.Type.ime());
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
 
+            ViewGroup.MarginLayoutParams buttonLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
+
+            buttonLayoutParams.bottomMargin = insets.bottom + 50 ;
             WindowCompat.setDecorFitsSystemWindows(getWindow(), imeVisible);
 
-            return insets;
+            return windowInsets;
         });
 
         backButton.setOnClickListener(view -> finish());
@@ -94,6 +101,7 @@ public class sign_up_page extends AppCompatActivity {
         });
     }
 
+// elegxos orthotitas tou password pou dothike
     public boolean isValid(String password,String confirmPassword){
         Pattern numberPattern = Pattern.compile("[0-9]");
         Pattern upperCasePattern = Pattern.compile("[A-Z ]");

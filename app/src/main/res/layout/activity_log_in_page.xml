@@ -61,7 +61,7 @@
         <EditText
             android:id="@+id/loginEmail"
             android:layout_width="320dp"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:autofillHints="emailAddress"
@@ -79,7 +79,7 @@
         <EditText
             android:id="@+id/loginPassword"
             android:layout_width="320dp"
-            android:layout_height="50dp"
+            android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:autofillHints="password"
 
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:contentDescription="@string/hide_show_toggle"
-            android:padding="12dp"
+            android:padding="13dp"
 
             app:layout_constraintBottom_toBottomOf="@+id/loginPassword"
             app:layout_constraintEnd_toEndOf="@+id/loginPassword"
@@ -129,7 +129,7 @@
             android:layout_marginTop="38dp"
             android:background="#00000000"
 
-            android:text="@string/forgot_password"
+            android:text="@string/forgot_your_password"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"

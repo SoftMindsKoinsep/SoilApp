@@ -44,6 +44,7 @@ public class videoPlayer extends AppCompatActivity {
         
         videoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+//Analoga me ta insets ton status bars, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
@@ -201,6 +202,7 @@ public class videoPlayer extends AppCompatActivity {
         controlSystemUI();
     }
 
+//Analoga me ton prosanatolismo tou kinitou, allazei to UI
     public void controlSystemUI(){
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){

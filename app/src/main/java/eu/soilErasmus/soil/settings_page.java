@@ -28,6 +28,8 @@ public class settings_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
+
+//analoga me ta insets ton status bars, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
 
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
@@ -37,7 +39,7 @@ public class settings_page extends AppCompatActivity {
 
             ViewGroup.MarginLayoutParams backLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
             ViewGroup.MarginLayoutParams imageLayoutParams = (ViewGroup.MarginLayoutParams) soilLogo.getLayoutParams();
-            backLayoutParams.topMargin = insets.top;
+            backLayoutParams.topMargin = insets.top + 10;
             imageLayoutParams.topMargin = insets.top;
 
             backButton.setLayoutParams(backLayoutParams);
@@ -47,24 +49,19 @@ public class settings_page extends AppCompatActivity {
         });
 
         backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(view -> finish());
+
         itemRecyclerView = findViewById(R.id.settings_recycler_view);
 
         itemList = new ArrayList<>();
         itemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemRecyclerView.setHasFixedSize(true);
 
-        getData();
+        createSettingsItems();
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        backButton.setOnClickListener(view -> finish());
-
-    }
-    private void getData() {
+//ena recycler view gia ta settings items
+    private void createSettingsItems() {
         String[] itemNames = getResources().getStringArray(R.array.settings_items);
 
         for( int i=0; i<itemImages.length; i++){

@@ -8,7 +8,7 @@
     android:layout_marginBottom="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsItem"
+        android:id="@+id/clickable_space"
         android:layout_width="match_parent"
         android:layout_height="55dp"
 

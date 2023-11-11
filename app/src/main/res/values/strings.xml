@@ -17,7 +17,7 @@
     <string name="login_email" translatable="true">Enter Email</string>
     <string name="password" translatable="true">Enter Password</string>
     <string name="remember_me" translatable="true">Remember Me</string>
-    <string name="forgot_password" translatable="true">Forgot your password?</string>
+    <string name="forgot_your_password" translatable="true">Forgot your password?</string>
 
     <string name="settings_button">Settings</string>
     <string name="back_button">Back Button</string>
@@ -66,6 +66,9 @@
     <string name="open_settings_page">open settings page</string>
     <string name="open_about_page">open About page</string>
     <string name="delete">Delete</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="reset">Reset</string>
+    <string name="enter_your_email_address">Enter your email address</string>
 
 
     <string-array name="settings_items">
@@ -80,39 +83,39 @@
 
     <string-array name="plant_name_array">
 
-        <item>Tomato</item>
-        <item>Pepper plant</item>
-        <item>Zucchini</item>
-        <item>Pumpkin</item>
+        <item> Pumpkin </item>
+        <item> Radish </item>
+        <item> Carrot </item>
+        <item> Broccoli </item>
 
-        <item>Carrot</item>
-        <item>"Cauliflower"</item>
-        <item>"Fir tree"</item>
-        <item>"Pine tree"</item>
+        <item> Onion </item>
+        <item> Cauliflower </item>
+        <item> Fir tree </item>
+        <item> Pine tree </item>
 
-        <item>"Nettle"</item>
-        <item>"Onion"</item>
-        <item>"Radishes"</item>
-        <item>"Broccoli"</item>
+        <item> Nettle </item>
+        <item> Zucchini </item>
+        <item> Pepper </item>
+        <item> Tomatoes </item>
 
     </string-array>
 
     <string-array name="plant_description_array">
 
-        <item>Tomato Description</item>
-        <item>Pepper plant Description</item>
-        <item>Zucchini Description</item>
         <item>Pumpkin Description</item>
-
+        <item>"Radishes Description"</item>
         <item>Carrot Description</item>
+        <item>"Broccoli Description"</item>
+
+        <item>"Onion Description"</item>
         <item>"Cauliflower Description"</item>
         <item>"Fir tree Description"</item>
         <item>"Pine tree Description"</item>
 
         <item>"Nettle Description"</item>
-        <item>"Onion Description"</item>
-        <item>"Radishes Description"</item>
-        <item>"Broccoli Description"</item>
+        <item>Zucchini Description</item>
+        <item>Pepper plant Description</item>
+        <item>Tomato Description</item>
 
     </string-array>
 

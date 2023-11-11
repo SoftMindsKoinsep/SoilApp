@@ -74,8 +74,11 @@ public class SettingsRecyclerViewAdapter extends RecyclerView.Adapter<SettingsRe
             itemImage = itemView.findViewById(R.id.itemImage);
             itemName = itemView.findViewById(R.id.itemName);
 
-            clickableSpace = itemView.findViewById(R.id.settingsItem);
+            clickableSpace = itemView.findViewById(R.id.clickable_space);
+
+// elegxos gia to item pou patithike sto settings page
             clickableSpace.setOnClickListener(view -> {
+
                 settingsItem = itemList.get(getAbsoluteAdapterPosition());
                 String[] itemNames = context.getResources().getStringArray(R.array.settings_items);
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

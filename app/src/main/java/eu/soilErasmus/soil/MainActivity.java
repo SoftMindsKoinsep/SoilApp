@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-//Mia arxiki selida me 3 koumpia
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
@@ -23,15 +22,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Δηλωνω πως θα χειριστω manually το UI (Navigation bar, Status bar)
+//Dilono pos tha xeiristo manually το UI (Navigation bar, Status bar)
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
 
+//Analoga me ta insets ton status bars, allazei to UI
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
+
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
             Button settingsButton = view.findViewById(R.id.settingsButton);
 
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) settingsButton.getLayoutParams();
-            marginLayoutParams.topMargin = insets.top;
+            marginLayoutParams.topMargin = insets.top + 10;
             settingsButton.setLayoutParams(marginLayoutParams);
 
             return WindowInsetsCompat.CONSUMED;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //otan patas "piso", den termatizei h efarmogh alla metaferese sto home page
+//otan patietai "piso", den termatizei h efarmogh alla metaferese sto home page
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -72,5 +73,4 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-
 }

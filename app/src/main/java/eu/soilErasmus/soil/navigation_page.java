@@ -58,6 +58,7 @@ public class navigation_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_page);
 
+//analoga me ta insets ton status bars, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
 
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
@@ -75,6 +76,7 @@ public class navigation_page extends AppCompatActivity {
 
             return WindowInsetsCompat.CONSUMED;
         });
+
         navButton = findViewById(R.id.openNavButton);
 
         videoButton = findViewById(R.id.videoButton);
@@ -112,8 +114,9 @@ public class navigation_page extends AppCompatActivity {
 
         videoButton.setOnClickListener(view -> {
             drawerLayout.openDrawer(GravityCompat.START);
-            expandableListView.expandGroup( VIDEOS );
+            expandableListView.expandGroup(VIDEOS);
         });
+
         ARButton.setOnClickListener(view -> openPlants());
         soilButton.setOnClickListener(view -> openAbout());
         disclaimerButton.setOnClickListener(view -> openSettings());

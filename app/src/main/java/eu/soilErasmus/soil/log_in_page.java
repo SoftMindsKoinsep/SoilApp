@@ -37,7 +37,6 @@ public class log_in_page extends AppCompatActivity {
 
     EditText loginEmail,loginPassword;
     Button backButton,loginButton,forgotPassword,cancelDialog,acceptDialog;
-
     FirebaseAuth firebaseAuth;
     ImageView soilLogo,toggle;
     boolean deleteFlag = false;
@@ -57,19 +56,21 @@ public class log_in_page extends AppCompatActivity {
         toggle = findViewById(R.id.passwordToggle);
         forgotPassword = findViewById(R.id.forgotPassword);
 
+// elegxos gia tin periptosi pou afti i selida anoikse gia "diagrafi xristi" -- (kai dinetai bundle stin intent)
         if(getIntent().getExtras() != null) {
             Bundle deleteIntent = getIntent().getExtras();
             deleteFlag = deleteIntent.getBoolean("Account Delete");
             loginButton.setText(R.string.delete);
         }
 
+ //Analoga me ta insets ton status bars, allazei to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
 
             ViewGroup.MarginLayoutParams buttonLayoutParams = (ViewGroup.MarginLayoutParams) backButton.getLayoutParams();
             ViewGroup.MarginLayoutParams imageLayoutParams = (ViewGroup.MarginLayoutParams) soilLogo.getLayoutParams();
-            buttonLayoutParams.topMargin = insets.top;
+            buttonLayoutParams.topMargin = insets.top + 10;
             imageLayoutParams.topMargin = insets.top;
 
             backButton.setLayoutParams(buttonLayoutParams);
@@ -82,6 +83,8 @@ public class log_in_page extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+//an iparxei authenticated user logged in , anoigei to nav page
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if(currentUser != null){
             Intent intent = new Intent(this, navigation_page.class);
@@ -94,6 +97,7 @@ public class log_in_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+//alert box gia to "forget password"
         forgotPassword.setOnClickListener(view -> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(log_in_page.this);
@@ -106,6 +110,7 @@ public class log_in_page extends AppCompatActivity {
 
             acceptDialog = dialog.findViewById(R.id.accept_forgot_password);
             cancelDialog = dialog.findViewById(R.id.cancel_forgot_password);
+
             acceptDialog.setOnClickListener(view1 -> {
                 EditText emailAddress = customLayout.findViewById(R.id.emailText);
                 checkEmailAddress(emailAddress.getText().toString());
@@ -122,6 +127,8 @@ public class log_in_page extends AppCompatActivity {
             finish();
         });
 
+//analoga me tin methodo pou fainontai ta grammata sto password TextView,
+//allazei kai to toggle password
         toggle.setImageResource(R.drawable.baseline_radio_button_unchecked_24);
         toggle.setOnClickListener(view -> {
 
@@ -139,6 +146,7 @@ public class log_in_page extends AppCompatActivity {
             }
         });
 
+// elegxos gia credentials gia login
         loginButton.setOnClickListener(view -> {
 
             String email = loginEmail.getText().toString();
@@ -153,8 +161,9 @@ public class log_in_page extends AppCompatActivity {
 
             }else{
                 firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
-
                     if(task.isSuccessful()){
+
+                        //teleftaios elegxos gia ean to epitixes login pou egine itan gia "delete user" i gia login kanoniko
                         if (deleteFlag){
                             deleteUserData(firebaseAuth, firebaseAuth.getCurrentUser());
 
@@ -169,11 +178,14 @@ public class log_in_page extends AppCompatActivity {
         });
     }
 
+//elegxos orthotitas tou email pou dothike sto "forgot password"
     private void checkEmailAddress(String emailAddress) {
+
         if (emailAddress.isEmpty()) return;
+
         firebaseAuth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(task -> {
             if (task.isSuccessful())
-                Toast.makeText(log_in_page.this, "Please check your Email.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(log_in_page.this, "Please check your Email Address.", Toast.LENGTH_SHORT).show();
             else {
                 try {throw (Objects.requireNonNull(task.getException()));}
                 catch (Exception e) {Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();}
@@ -181,7 +193,7 @@ public class log_in_page extends AppCompatActivity {
         });
     }
 
-
+//prota diagrafi stoixeion tou xristi sto database
     private void deleteUserData(FirebaseAuth firebaseAuth,FirebaseUser firebaseUser){
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
@@ -199,6 +211,7 @@ public class log_in_page extends AppCompatActivity {
         });
     }
 
+// kai meta diagrafi tou idiou tou xristi
     private void deleteUser(FirebaseAuth firebaseAuth,FirebaseUser firebaseUser) {
 
         firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {

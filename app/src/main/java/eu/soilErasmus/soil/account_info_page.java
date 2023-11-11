@@ -47,6 +47,7 @@ public class account_info_page extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
+        //Analoga me ta insets ton status bars, allazo to UI
         WindowCompat.setDecorFitsSystemWindows(getWindow(),false);
         ViewCompat.setOnApplyWindowInsetsListener(getWindow().getDecorView(), (view, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
